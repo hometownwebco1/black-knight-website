@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Helmet } from 'react-helmet'
 import { X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Link } from 'react-router-dom'
@@ -44,16 +45,35 @@ const Gallery = () => {
     }
   ]
 
-  const openModal = (project) => {
-    setSelectedImage(project)
-  }
-
-  const closeModal = () => {
-    setSelectedImage(null)
-  }
+  const openModal = (project) => setSelectedImage(project)
+  const closeModal = () => setSelectedImage(null)
 
   return (
     <div className="min-h-screen bg-gray-50 py-16">
+      <Helmet>
+        <title>Concrete Project Gallery | Black Knight Solutions | Concord NC</title>
+        <meta
+          name="description"
+          content="Browse our gallery of concrete driveways, patios, sidewalks, and more in Concord NC. See why homeowners trust Black Knight Solutions."
+        />
+        <meta property="og:title" content="Gallery of Completed Concrete Projects | Concord NC" />
+        <meta
+          property="og:description"
+          content="See real photos of driveways, patios, and concrete installations by Black Knight Solutions in Concord NC and surrounding areas."
+        />
+        <meta property="og:type" content="website" />
+        {/* Schema.org markup */}
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": "Concrete Project Gallery",
+            "description": "See completed concrete driveways, patios, and sidewalks by Black Knight Solutions in Concord, NC.",
+            "url": "https://blackknight.hometownwebco.com/gallery"
+          }
+        `}</script>
+      </Helmet>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
@@ -99,13 +119,18 @@ const Gallery = () => {
             Ready to Start Your Project?
           </h2>
           <p className="text-lg text-gray-600 mb-8">
-            Contact us today for a free estimate on your concrete project
+            Contact us today for a free estimate on your concrete project.
           </p>
           <Link to="/contact">
             <Button size="lg" className="bg-primary hover:bg-primary/90">
               Get Free Quote
             </Button>
           </Link>
+        </div>
+
+        {/* Trust Info */}
+        <div className="text-center mt-12 text-sm text-muted-foreground">
+          <p>Black Knight Solutions · Serving Concord, NC · Licensed & Insured</p>
         </div>
       </div>
 
@@ -116,6 +141,7 @@ const Gallery = () => {
             <button
               onClick={closeModal}
               className="absolute top-4 right-4 text-white hover:text-gray-300 z-10"
+              aria-label="Close Image"
             >
               <X size={32} />
             </button>
@@ -136,3 +162,4 @@ const Gallery = () => {
 }
 
 export default Gallery
+

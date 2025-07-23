@@ -1,19 +1,53 @@
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 import { Button } from '@/components/ui/button'
 import { Phone, MapPin, Clock } from 'lucide-react'
 
 const Home = () => {
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>Concrete Contractor Concord NC | Black Knight Solutions</title>
+        <meta
+          name="description"
+          content="Top-rated concrete contractor in Concord, NC. Specializing in driveways, patios, sidewalks, and more. Get a free quote today from Black Knight Solutions."
+        />
+        <meta property="og:title" content="Concrete Contractor in Concord NC | Black Knight Solutions" />
+        <meta
+          property="og:description"
+          content="Serving Concord and surrounding areas with expert concrete driveways, patios, and sidewalks. Free estimates from licensed professionals."
+        />
+        <meta property="og:type" content="website" />
+        {/* LocalBusiness Schema */}
+        <script type="application/ld+json">{`
+        {
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "Black Knight Solutions",
+          "image": "https://blackknight.hometownwebco.com/logo192.png",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Concord",
+            "addressRegion": "NC",
+            "postalCode": "28025",
+            "addressCountry": "US"
+          },
+          "telephone": "(704) 555-0123",
+          "url": "https://blackknight.hometownwebco.com",
+          "description": "Residential concrete contractor in Concord NC specializing in driveways, patios, sidewalks, and more."
+        }
+        `}</script>
+      </Helmet>
+
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-gray-900 to-gray-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Professional Concrete Services
+              Concrete Driveways, Patios & Sidewalks
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-gray-300">
-              Serving Concord, NC and surrounding areas with quality residential concrete work
+              Reliable residential concrete services in Concord, NC & surrounding areas.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-white text-gray-900 hover:bg-gray-100">
@@ -41,7 +75,7 @@ const Home = () => {
                 that stand the test of time.
               </p>
               <p className="text-lg text-gray-600 mb-8">
-                From driveways and patios to sidewalks and foundations, we bring precision, professionalism, 
+                From driveways and patios to sidewalks and retaining walls, we bring precision, professionalism, 
                 and reliability to every project. Our team uses only the finest materials and proven techniques 
                 to ensure your concrete work exceeds expectations.
               </p>
@@ -86,7 +120,7 @@ const Home = () => {
               Ready to Start Your Project?
             </h2>
             <p className="text-lg text-gray-600">
-              Contact us today for a free consultation and estimate
+              Contact us today for a free consultation and estimate.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -109,8 +143,13 @@ const Home = () => {
                 <Clock size={24} />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Hours</h3>
-              <p className="text-gray-600">Mon-Fri: 7AM-6PM<br />Sat: 8AM-4PM</p>
+              <p className="text-gray-600">Mon–Fri: 7AM–6PM<br />Sat: 8AM–4PM</p>
             </div>
+          </div>
+
+          {/* Business Info Block (for trust) */}
+          <div className="text-center mt-12 text-sm text-muted-foreground">
+            <p>Black Knight Solutions LLC · Licensed & Insured · Concord, NC 28025</p>
           </div>
         </div>
       </section>

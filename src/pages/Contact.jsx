@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Helmet } from 'react-helmet'
 import { Button } from '@/components/ui/button'
 import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react'
 
@@ -12,15 +13,11 @@ const Contact = () => {
   })
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
+    setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Handle form submission here
     console.log('Form submitted:', formData)
     alert('Thank you for your message! We will contact you soon.')
     setFormData({
@@ -34,14 +31,53 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 py-16">
+      <Helmet>
+        <title>Contact Black Knight Solutions | Free Concrete Estimate in Concord NC</title>
+        <meta
+          name="description"
+          content="Contact Black Knight Solutions for residential concrete services in Concord, NC. Free estimates and friendly support for driveways, patios, walkways, and more."
+        />
+        <meta property="og:title" content="Get a Free Concrete Quote | Black Knight Solutions" />
+        <meta
+          property="og:description"
+          content="Reach out to Black Knight Solutions for expert concrete work in Concord, NC and surrounding areas. Free estimates, fast response."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://blackknight.hometownwebco.com/contact" />
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "mainEntity": {
+              "@type": "LocalBusiness",
+              "name": "Black Knight Solutions",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Concord",
+                "addressRegion": "NC",
+                "addressCountry": "US"
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+1-704-555-0123",
+                "contactType": "Customer Service",
+                "email": "info@blackknightsolutions.com"
+              },
+              "areaServed": {
+                "@type": "Place",
+                "name": "Concord NC and surrounding areas"
+              },
+              "url": "https://blackknight.hometownwebco.com"
+            }
+          }
+        `}</script>
+      </Helmet>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Contact Us
-          </h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Contact Us</h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Ready to start your concrete project? Get in touch with Black Knight Solutions today. 
+            Ready to start your concrete project? Get in touch with Black Knight Solutions today.
             We provide free estimates and are here to answer all your questions.
           </p>
         </div>
@@ -49,9 +85,7 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div className="bg-white rounded-lg shadow-lg p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
-              Get Your Free Quote
-            </h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">Get Your Free Quote</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -147,11 +181,8 @@ const Contact = () => {
 
           {/* Contact Information */}
           <div className="space-y-8">
-            {/* Contact Details */}
             <div className="bg-white rounded-lg shadow-lg p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                Contact Information
-              </h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h2>
               <div className="space-y-6">
                 <div className="flex items-start">
                   <div className="bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
@@ -200,11 +231,8 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Service Areas */}
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-blue-900 mb-3">
-                Areas We Serve
-              </h3>
+              <h3 className="text-lg font-semibold text-blue-900 mb-3">Areas We Serve</h3>
               <div className="grid grid-cols-2 gap-2 text-sm text-blue-700">
                 <div>• Concord</div>
                 <div>• Kannapolis</div>
