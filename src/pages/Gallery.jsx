@@ -18,13 +18,13 @@ const Gallery = () => {
       id: 2,
       image: '/images/pationexttoscreenporch.jpeg',
       title: 'Residential Patio',
-      description: 'New residential patio next to screen porch.'
+      description: 'New residential patio.'
     },
     {
       id: 3,
       image: '/images/cranejobmiddle.jpeg',
       title: 'Commercial Crane Pour',
-      description: 'Large-scale commercial job with crane access.'
+      description: 'Large-scale commercial job.'
     },
     {
       id: 4,
