@@ -20,7 +20,6 @@ const Driveways = lazy(() => import('./pages/services/Driveways'))
 const Patios = lazy(() => import('./pages/services/Patios'))
 const Sidewalks = lazy(() => import('./pages/services/Sidewalks'))
 const GarageFloors = lazy(() => import('./pages/services/GarageFloors'))
-const PoolDecks = lazy(() => import('./pages/services/PoolDecks'))
 const RetainingWalls = lazy(() => import('./pages/services/RetainingWalls'))
 
 function App() {
@@ -58,7 +57,6 @@ function App() {
               <Route path="/services/patios" element={<Patios />} />
               <Route path="/services/sidewalks" element={<Sidewalks />} />
               <Route path="/services/garage-floors" element={<GarageFloors />} />
-              <Route path="/services/pool-decks" element={<PoolDecks />} />
               <Route path="/services/retaining-walls" element={<RetainingWalls />} />
 
               {/* 404 Fallback */}
@@ -73,3 +71,4 @@ function App() {
 }
 
 export default App
+
