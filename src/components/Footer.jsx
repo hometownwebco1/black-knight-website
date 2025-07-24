@@ -26,7 +26,6 @@ const Footer = () => {
             <li><Link to="/services/patios" className="hover:underline">Patios & Porches</Link></li>
             <li><Link to="/services/sidewalks" className="hover:underline">Sidewalks</Link></li>
             <li><Link to="/services/garage-floors" className="hover:underline">Garage Floors</Link></li>
-            <li><Link to="/services/pool-decks" className="hover:underline">Pool Decks</Link></li>
             <li><Link to="/services/retaining-walls" className="hover:underline">Retaining Walls</Link></li>
           </ul>
         </div>
