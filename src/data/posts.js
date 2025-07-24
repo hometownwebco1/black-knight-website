@@ -36,33 +36,35 @@ If you’re considering an upgrade, a concrete driveway is a smart, stylish, and
 `
   },
   {
-    title: 'Stamped Concrete Patios: Transforming Outdoor Living in Harrisburg, NC',
-    slug: 'stamped-concrete-patios-harrisburg-nc',
-    date: '2024-06-20',
-    excerpt: 'Explore how stamped concrete patios are revolutionizing outdoor living in Harrisburg, NC. From textures to colors, the customization is limitless.',
-    tags: ['Harrisburg', 'Patio', 'Stamped Concrete', 'Outdoor Living'],
+    title: 'Stamped Concrete Patios: Outdoor Upgrades in Lake Norman & Lake Wylie',
+    slug: 'stamped-concrete-patios-lake-norman-wylie',
+    date: '2024-07-22',
+    excerpt: 'Stamped concrete patios are a game-changer for Lake Norman and Lake Wylie homeowners looking to elevate their outdoor space with style and strength.',
+    tags: ['Lake Norman', 'Lake Wylie', 'Stamped Concrete', 'Outdoor Living'],
     content: `
-Stamped concrete patios have become a go-to solution for homeowners in Harrisburg, NC looking to upgrade their backyards without breaking the bank. This cost-effective alternative to natural stone or pavers brings luxury looks with the durability of poured concrete.
+Stamped concrete patios are becoming the backyard centerpiece for homeowners in the Lake Norman and Lake Wylie areas. With their high-end appearance and rock-solid durability, these patios provide the ideal upgrade for lakeside entertaining and relaxing.
 
-**Why Harrisburg Homeowners Love It**
+**Perfect for Lakefront Living**
 
-Homeowners across neighborhoods like Stallings and Roberta are using stamped concrete to expand outdoor living space. Whether it’s a grilling area, fire pit zone, or just a peaceful retreat, a stamped patio provides both function and flair.
+Whether you're hosting summer barbecues or watching sunsets over the water, a stamped concrete patio adds polish to any outdoor setting. Residents in neighborhoods like The Peninsula and Tega Cay are choosing stamped concrete to match the upscale charm of the region.
 
-**Design Versatility**
+**Design Freedom**
 
-With hundreds of patterns and color combinations, your patio can mimic the look of flagstone, brick, slate, or even wood—without the maintenance. Add a contrasting border or multi-level layout to make your outdoor space truly one-of-a-kind.
+With options that mimic slate, stone, brick, or even wood, stamped concrete offers full creative control. Accent borders, two-tone coloring, and curved layouts let you build a patio that’s anything but boring.
 
-**Durability Matters**
+<img src="/images/stampedconcretecloseup.jpeg" alt="A stamped concrete patio in the Lake Wylie area" style="margin: 2rem 0; border-radius: 8px; width: 100%; max-height: 450px; object-fit: cover;" />
 
-Unlike wood decks that warp or rot, concrete patios resist wear and tear from foot traffic, patio furniture, and the weather. Slip-resistant finishes can also be added for safety, especially around pools.
+**Weather-Ready and Low Maintenance**
 
-**Budget-Friendly Luxury**
+Concrete stands up to rain, UV rays, and lakefront humidity better than wood or tile. Plus, it doesn’t require sanding or sealing every year—just a light reseal every few seasons.
 
-Compared to natural materials, stamped concrete delivers the same upscale appearance at a fraction of the cost. That means more room in the budget for lighting, outdoor kitchens, or landscaping.
+**Luxury on a Budget**
+
+Stamped concrete gives you the luxurious feel of flagstone or travertine at a much lower cost. It’s the best way to get top-tier aesthetics without draining your renovation budget.
 
 **Conclusion**
 
-Whether you're entertaining guests or enjoying a quiet night under the stars, a stamped concrete patio offers beauty and strength. Let Black Knight Solutions help you design the perfect space in Harrisburg and beyond.
+Transform your lakeside backyard into a stylish retreat with a stamped concrete patio from Black Knight Solutions. Serving Lake Norman, Lake Wylie, and surrounding communities, we’ll help you build an outdoor space you’ll never want to leave.
 `
   },
   {
@@ -82,6 +84,8 @@ Cracked or uneven paths are a liability hazard. Our professionally installed sid
 
 Concrete sidewalks don’t have to be boring. With brushed finishes, clean borders, and the option for stamped accents, sidewalks can enhance a property’s curb appeal while maintaining function.
 
+<img src="/images/publicsidewalk1.jpeg" alt="Concrete sidewalk in a public area of Kannapolis" style="margin: 2rem 0; border-radius: 8px; width: 100%; max-height: 450px; object-fit: cover;" />
+
 **Built to Last**
 
 Concrete outperforms other materials in longevity and strength. With proper prep, expansion joints, and rebar, a concrete sidewalk in Kannapolis can last for decades with minimal upkeep.
@@ -96,37 +100,35 @@ A new sidewalk is a smart upgrade that improves both safety and style. Black Kni
 `
   },
   {
-    title: 'Garage Concrete Floors in Midland, NC: Built for Strength & Style',
-    slug: 'garage-floors-midland-nc',
-    date: '2024-07-08',
-    excerpt: 'See why Midland, NC homeowners trust concrete garage floors for lasting durability and clean appearance. Learn about finishes, reinforcement, and more.',
-    tags: ['Midland', 'Garage Floor', 'Concrete Slab', 'Home Upgrade'],
+    title: 'Concrete Back Patios in Harrisburg, NC: Built for Everyday Living',
+    slug: 'concrete-back-patios-harrisburg-nc',
+    date: '2024-07-24',
+    excerpt: 'Explore why Harrisburg homeowners are choosing concrete patios for comfortable, low-maintenance outdoor living. Perfect for gatherings, grilling, and relaxation.',
+    tags: ['Harrisburg', 'Back Patio', 'Concrete', 'Outdoor Living'],
     content: `
-Garage floors take more abuse than most surfaces in a home. From heavy vehicles to tool drops, a concrete garage floor in Midland, NC offers unmatched strength and clean appearance that can last decades.
+Concrete back patios are becoming the go-to solution for Harrisburg, NC homeowners looking to add functionality and comfort to their outdoor spaces. Simple, strong, and stylish, a concrete patio is perfect for everyday living or weekend entertaining.
 
-**Strength Where You Need It**
+**Everyday Use, Exceptional Results**
 
-Our garage slabs are engineered to withstand high loads. Reinforced with rebar and poured with a thickened edge, they support everything from compact cars to full-size trucks and workbenches.
+Whether it’s a quiet cup of coffee or a cookout with friends, a concrete patio gives you a level, stable surface that supports all your outdoor activities. It’s the foundation for the good times right outside your door.
 
-**Optional Finishes**
+**Durable, Not Dull**
 
-Concrete doesn’t have to be plain. Add a polished finish, epoxy coating, or a sealer to reduce dust and repel spills. These additions not only improve the look but also extend the floor’s life.
+Concrete doesn’t crack under pressure—literally. Proper installation ensures long-lasting performance, and surface treatments like broom finishes or light washes can give your patio a custom, polished look.
 
-**Easy to Maintain**
+<img src="/images/stampedpatiobrickhouse.jpeg" alt="Concrete back patio outside a brick house" style="margin: 2rem 0; border-radius: 8px; width: 100%; max-height: 450px; object-fit: cover;" />
 
-Unlike tile or wood, concrete is easy to sweep and hose off. Coated surfaces are even easier to clean—perfect for oil drips, mud, or seasonal debris.
+**Low Maintenance Living**
 
-**A Clean Look That Lasts**
+Unlike wood decks that need staining or pavers that shift, concrete patios stay put and stay clean. A simple hose-off is often all it takes to keep them looking fresh.
 
-A fresh garage floor transforms the space from a cluttered corner into a clean, usable part of your home. Many homeowners in Midland are using this upgrade as the foundation for a home gym or hobby workshop.
+**Made for Harrisburg Homes**
 
-**Serving Midland and Beyond**
-
-We provide professional garage floor installation throughout Midland and nearby towns like Locust and Mount Pleasant. Our expert crew ensures proper drainage, grade, and finishing so your investment stands strong for years to come.
+From established neighborhoods to new developments, homeowners in Harrisburg are choosing concrete patios for their backyards. It's a smart way to expand your usable space while keeping your landscaping low-fuss.
 
 **Conclusion**
 
-Ready to upgrade your garage? A concrete floor by Black Knight Solutions brings lasting value, durability, and style. Schedule a free quote today and see the difference solid workmanship can make.
+If you're ready to reclaim your backyard, a concrete patio from Black Knight Solutions is a smart, stylish step forward. Get in touch for a quote—we’d love to help you build the perfect outdoor foundation.
 `
   }
-]
+];
