@@ -3,11 +3,6 @@ import { Helmet } from 'react-helmet'
 import { X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Link } from 'react-router-dom'
-import gallery1 from '../assets/gallery1.jpg'
-import gallery2 from '../assets/gallery2.jpg'
-import gallery3 from '../assets/gallery3.jpg'
-import gallery4 from '../assets/gallery4.jpg'
-import gallery5 from '../assets/gallery5.jpg'
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null)
@@ -15,33 +10,39 @@ const Gallery = () => {
   const projects = [
     {
       id: 1,
-      image: gallery1,
-      title: 'Residential Driveway',
-      description: 'Beautiful concrete driveway with professional finish'
+      image: '/images/drivewaypouronnewbuild1.jpeg',
+      title: 'New Driveway Installation',
+      description: 'Brand new driveway on a new build home.'
     },
     {
       id: 2,
-      image: gallery2,
-      title: 'Patio Installation',
-      description: 'Custom patio design with decorative concrete'
+      image: '/images/pationexttoscreenporch.jpeg',
+      title: 'Residential Patio',
+      description: 'New residential patio next to screen porch.'
     },
     {
       id: 3,
-      image: gallery3,
-      title: 'Sidewalk Project',
-      description: 'Durable sidewalk construction for residential property'
+      image: '/images/cranejobmiddle.jpeg',
+      title: 'Commercial Crane Pour',
+      description: 'Large-scale commercial job with crane access.'
     },
     {
       id: 4,
-      image: gallery4,
-      title: 'Foundation Work',
-      description: 'Solid foundation construction with precision'
+      image: '/images/foundationpour1.jpeg',
+      title: 'Foundation Pour',
+      description: 'Foundation going in for a new home.'
     },
     {
       id: 5,
-      image: gallery5,
-      title: 'Commercial Project',
-      description: 'Large-scale concrete work for commercial client'
+      image: '/images/householdwalkway.jpeg',
+      title: 'Residential Walkway',
+      description: 'Freshly poured concrete walkway for a home.'
+    },
+    {
+      id: 6,
+      image: '/images/higherupimagenewdrwy.jpeg',
+      title: 'Driveway Expansion',
+      description: 'New addition to an existing driveway.'
     }
   ]
 
@@ -54,39 +55,38 @@ const Gallery = () => {
         <title>Concrete Project Gallery | Black Knight Solutions | Concord NC</title>
         <meta
           name="description"
-          content="Browse our gallery of concrete driveways, patios, sidewalks, and more in Concord NC. See why homeowners trust Black Knight Solutions."
+          content="Browse real project photos from Black Knight Solutions in Concord, NC including driveways, patios, walkways, foundations, and commercial concrete pours."
         />
         <meta property="og:title" content="Gallery of Completed Concrete Projects | Concord NC" />
         <meta
           property="og:description"
-          content="See real photos of driveways, patios, and concrete installations by Black Knight Solutions in Concord NC and surrounding areas."
+          content="View our latest residential and commercial concrete projects around Concord, NC. High-quality, licensed, and insured work you can trust."
         />
+        <meta property="og:image" content="/images/drivewaypouronnewbuild1.jpeg" />
         <meta property="og:type" content="website" />
-        {/* Schema.org markup */}
+        <meta property="og:url" content="https://blackknight.hometownwebco.com/gallery" />
         <script type="application/ld+json">{`
           {
             "@context": "https://schema.org",
             "@type": "CollectionPage",
             "name": "Concrete Project Gallery",
-            "description": "See completed concrete driveways, patios, and sidewalks by Black Knight Solutions in Concord, NC.",
+            "description": "See completed concrete driveways, patios, and foundations by Black Knight Solutions in Concord, NC.",
             "url": "https://blackknight.hometownwebco.com/gallery"
           }
         `}</script>
       </Helmet>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Our Work Gallery
           </h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Take a look at some of our completed concrete projects in Concord, NC and surrounding areas. 
-            Each project showcases our commitment to quality and attention to detail.
+            Each job showcases our precision, durability, and commitment to quality.
           </p>
         </div>
 
-        {/* Gallery Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
             <div 
@@ -99,6 +99,7 @@ const Gallery = () => {
                   src={project.image}
                   alt={project.title}
                   className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
                 />
               </div>
               <div className="p-6">
@@ -113,7 +114,6 @@ const Gallery = () => {
           ))}
         </div>
 
-        {/* Call to Action */}
         <div className="text-center mt-16">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
             Ready to Start Your Project?
@@ -128,13 +128,11 @@ const Gallery = () => {
           </Link>
         </div>
 
-        {/* Trust Info */}
         <div className="text-center mt-12 text-sm text-muted-foreground">
           <p>Black Knight Solutions · Serving Concord, NC · Licensed & Insured</p>
         </div>
       </div>
 
-      {/* Modal */}
       {selectedImage && (
         <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
           <div className="relative max-w-4xl max-h-full">
@@ -162,4 +160,3 @@ const Gallery = () => {
 }
 
 export default Gallery
-
