@@ -12,6 +12,8 @@ Concrete driveways have become the gold standard for homeowners looking to combi
 
 Unlike asphalt, concrete stands up to the elements—hot summers, cold winters, and everything in between. It doesn't warp, soften, or crack as easily, especially when professionally installed with proper grading and rebar reinforcement.
 
+<img src="/images/drivewayinconcorda.jpeg" alt="Brand New Driveway poured in Concord" style="margin: 2rem 0; border-radius: 8px; width: 100%; max-height: 450px; object-fit: cover;" />
+
 **Customization Options**
 
 Gone are the days of plain gray slabs. Homeowners in Cabarrus County are turning to decorative stamped concrete and colored finishes to elevate their curb appeal. Whether you want a classic broom finish or a cobblestone texture, concrete adapts to your home’s unique aesthetic.
@@ -128,5 +130,3 @@ Ready to upgrade your garage? A concrete floor by Black Knight Solutions brings 
 `
   }
 ]
-
-
