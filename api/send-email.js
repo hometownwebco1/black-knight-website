@@ -11,7 +11,7 @@ export default async function handler(req, res) {
 
   try {
     const data = await resend.emails.send({
-      from: 'Hometown Web Co <hello@hometownwebco.com>',
+      from: 'onboarding@resend.dev', // ✅ safe sender
       to: 'woody@hometownwebco.com',
       subject: `New Contact Form Submission from ${name}`,
       reply_to: email,
