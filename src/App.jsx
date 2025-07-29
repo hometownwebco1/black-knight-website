@@ -15,12 +15,13 @@ const BlogIndex = lazy(() => import('./pages/blog/BlogIndex'))
 const BlogPost = lazy(() => import('./pages/blog/Post'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 
-// Service subpages
+// Service subpages (updated to match correct slugs)
 const Driveways = lazy(() => import('./pages/services/Driveways'))
-const Patios = lazy(() => import('./pages/services/Patios'))
-const Sidewalks = lazy(() => import('./pages/services/Sidewalks'))
-const GarageFloors = lazy(() => import('./pages/services/GarageFloors'))
-const RetainingWalls = lazy(() => import('./pages/services/RetainingWalls'))
+const PatiosAndPorches = lazy(() => import('./pages/services/PatiosAndPorches'))
+const SidewalksAndWalkways = lazy(() => import('./pages/services/SidewalksAndWalkways'))
+const Foundations = lazy(() => import('./pages/services/Foundations'))
+const ConcreteRepair = lazy(() => import('./pages/services/ConcreteRepair'))
+const ProtectiveCoatings = lazy(() => import('./pages/services/ProtectiveCoatings'))
 
 function App() {
   return (
@@ -52,12 +53,13 @@ function App() {
               <Route path="/blog" element={<BlogIndex />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
 
-              {/* Service Subpages */}
+              {/* Updated Service Subpages */}
               <Route path="/services/driveways" element={<Driveways />} />
-              <Route path="/services/patios" element={<Patios />} />
-              <Route path="/services/sidewalks" element={<Sidewalks />} />
-              <Route path="/services/garage-floors" element={<GarageFloors />} />
-              <Route path="/services/retaining-walls" element={<RetainingWalls />} />
+              <Route path="/services/patios-and-porches" element={<PatiosAndPorches />} />
+              <Route path="/services/sidewalks-and-walkways" element={<SidewalksAndWalkways />} />
+              <Route path="/services/foundations" element={<Foundations />} />
+              <Route path="/services/concrete-repair" element={<ConcreteRepair />} />
+              <Route path="/services/protective-coatings" element={<ProtectiveCoatings />} />
 
               {/* 404 Fallback */}
               <Route path="*" element={<NotFound />} />
@@ -71,4 +73,3 @@ function App() {
 }
 
 export default App
-
