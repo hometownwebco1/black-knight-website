@@ -34,7 +34,7 @@ const Footer = () => {
         <div>
           <h2 className="text-base font-semibold text-gray-900 mb-4">Contact</h2>
           <ul className="space-y-2 text-muted-foreground">
-            <li><span className="text-gray-700">Phone:</span> (704) 555-0123</li>
+            <li><span className="text-gray-700">Phone:</span> (704) 787-4975</li>
             <li><span className="text-gray-700">Hours:</span> Mon–Fri: 7AM–6PM</li>
             <li><span className="text-gray-700">Area:</span> Concord, NC & Surrounding</li>
             <li><span className="text-gray-700">Facebook:</span>{' '}

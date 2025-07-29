@@ -32,7 +32,7 @@ const Home = () => {
             "postalCode": "28025",
             "addressCountry": "US"
           },
-          "telephone": "(704) 555-0123",
+          "telephone": "(704) 787-4975",
           "url": "https://blackknight.hometownwebco.com",
           "description": "Residential concrete contractor in Concord NC specializing in driveways, patios, sidewalks, and more."
         }

@@ -59,7 +59,7 @@ const Contact = () => {
               },
               "contactPoint": {
                 "@type": "ContactPoint",
-                "telephone": "+1-704-555-0123",
+                "telephone": "+1-704-787-4975",
                 "contactType": "Customer Service",
                 "email": "info@blackknightsolutions.com"
               },
