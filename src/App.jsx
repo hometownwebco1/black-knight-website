@@ -5,7 +5,7 @@ import Navigation from './components/Navigation'
 import Footer from './components/Footer'
 import './App.css'
 
-// Lazy-loaded pages
+// Lazy-loaded core pages
 const Home = lazy(() => import('./pages/Home'))
 const Gallery = lazy(() => import('./pages/Gallery'))
 const Services = lazy(() => import('./pages/Services'))
@@ -15,11 +15,15 @@ const BlogIndex = lazy(() => import('./pages/blog/BlogIndex'))
 const BlogPost = lazy(() => import('./pages/blog/Post'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 
-// Service subpages
+// Lazy-loaded service subpages
 const Driveways = lazy(() => import('./pages/services/Driveways'))
+const Patios = lazy(() => import('./pages/services/Patios'))
 const PatiosAndPorches = lazy(() => import('./pages/services/PatiosAndPorches'))
+const Sidewalks = lazy(() => import('./pages/services/Sidewalks'))
 const SidewalksAndWalkways = lazy(() => import('./pages/services/SidewalksAndWalkways'))
+const GarageFloors = lazy(() => import('./pages/services/GarageFloors'))
 const Foundations = lazy(() => import('./pages/services/Foundations'))
+const RetainingWalls = lazy(() => import('./pages/services/RetainingWalls'))
 const ConcreteRepair = lazy(() => import('./pages/services/ConcreteRepair'))
 const ProtectiveCoatings = lazy(() => import('./pages/services/ProtectiveCoatings'))
 
@@ -58,11 +62,15 @@ function App() {
 
                 {/* Service Subpages */}
                 <Route path="/services/driveways" element={<Driveways />} />
-                <Route path="/services/patios-and-porches" element={<PatiosAndPorches />} />
-                <Route path="/services/sidewalks-and-walkways" element={<SidewalksAndWalkways />} />
+                <Route path="/services/patios" element={<Patios />} />
+                <Route path="/services/patiosandporches" element={<PatiosAndPorches />} />
+                <Route path="/services/sidewalks" element={<Sidewalks />} />
+                <Route path="/services/sidewalksandwalkways" element={<SidewalksAndWalkways />} />
+                <Route path="/services/garagefloors" element={<GarageFloors />} />
                 <Route path="/services/foundations" element={<Foundations />} />
-                <Route path="/services/concrete-repair" element={<ConcreteRepair />} />
-                <Route path="/services/protective-coatings" element={<ProtectiveCoatings />} />
+                <Route path="/services/retainingwalls" element={<RetainingWalls />} />
+                <Route path="/services/concreterepair" element={<ConcreteRepair />} />
+                <Route path="/services/protectivecoatings" element={<ProtectiveCoatings />} />
 
                 {/* 404 Fallback */}
                 <Route path="*" element={<NotFound />} />
