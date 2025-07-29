@@ -63,14 +63,14 @@ function App() {
                 {/* Service Subpages */}
                 <Route path="/services/driveways" element={<Driveways />} />
                 <Route path="/services/patios" element={<Patios />} />
-                <Route path="/services/patiosandporches" element={<PatiosAndPorches />} />
+                <Route path="/services/patios-and-porches" element={<PatiosAndPorches />} />
                 <Route path="/services/sidewalks" element={<Sidewalks />} />
-                <Route path="/services/sidewalksandwalkways" element={<SidewalksAndWalkways />} />
+                <Route path="/services/sidewalks-and-walkways" element={<SidewalksAndWalkways />} />
                 <Route path="/services/garagefloors" element={<GarageFloors />} />
                 <Route path="/services/foundations" element={<Foundations />} />
                 <Route path="/services/retainingwalls" element={<RetainingWalls />} />
-                <Route path="/services/concreterepair" element={<ConcreteRepair />} />
-                <Route path="/services/protectivecoatings" element={<ProtectiveCoatings />} />
+                <Route path="/services/concrete-repair" element={<ConcreteRepair />} />
+                <Route path="/services/protective-coatings" element={<ProtectiveCoatings />} />
 
                 {/* 404 Fallback */}
                 <Route path="*" element={<NotFound />} />
@@ -85,3 +85,4 @@ function App() {
 }
 
 export default App
+

@@ -18,15 +18,13 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Services */}
+        {/* Services - Two Columns, Excluding Patios & Porches + Sidewalks & Walkways */}
         <div>
           <h2 className="text-base font-semibold text-gray-900 mb-4">Our Services</h2>
-          <ul className="space-y-2">
+          <ul className="grid grid-cols-2 gap-y-2 gap-x-4">
             <li><Link to="/services/driveways" className="hover:underline">Concrete Driveways</Link></li>
             <li><Link to="/services/patios" className="hover:underline">Patios</Link></li>
-            <li><Link to="/services/patiosandporches" className="hover:underline">Patios & Porches</Link></li>
             <li><Link to="/services/sidewalks" className="hover:underline">Sidewalks</Link></li>
-            <li><Link to="/services/sidewalksandwalkways" className="hover:underline">Sidewalks & Walkways</Link></li>
             <li><Link to="/services/garagefloors" className="hover:underline">Garage Floors</Link></li>
             <li><Link to="/services/foundations" className="hover:underline">Foundations</Link></li>
             <li><Link to="/services/retainingwalls" className="hover:underline">Retaining Walls</Link></li>
