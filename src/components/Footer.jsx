@@ -18,7 +18,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Services - Two Columns, Excluding Patios & Porches + Sidewalks & Walkways */}
+        {/* Services - Two Columns, Fixed Slugs */}
         <div>
           <h2 className="text-base font-semibold text-gray-900 mb-4">Our Services</h2>
           <ul className="grid grid-cols-2 gap-y-2 gap-x-4">
@@ -28,8 +28,8 @@ const Footer = () => {
             <li><Link to="/services/garagefloors" className="hover:underline">Garage Floors</Link></li>
             <li><Link to="/services/foundations" className="hover:underline">Foundations</Link></li>
             <li><Link to="/services/retainingwalls" className="hover:underline">Retaining Walls</Link></li>
-            <li><Link to="/services/concreterepair" className="hover:underline">Concrete Repair</Link></li>
-            <li><Link to="/services/protectivecoatings" className="hover:underline">Protective Coatings</Link></li>
+            <li><Link to="/services/concrete-repair" className="hover:underline">Concrete Repair</Link></li>
+            <li><Link to="/services/protective-coatings" className="hover:underline">Protective Coatings</Link></li>
           </ul>
         </div>
 
