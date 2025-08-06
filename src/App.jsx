@@ -14,6 +14,7 @@ const FAQ = lazy(() => import('./pages/FAQ'))
 const BlogIndex = lazy(() => import('./pages/blog/BlogIndex'))
 const BlogPost = lazy(() => import('./pages/blog/Post'))
 const NotFound = lazy(() => import('./pages/NotFound'))
+const Estimates = lazy(() => import('./pages/Estimates')) // ✅ ADDED
 
 // Lazy-loaded service subpages
 const Driveways = lazy(() => import('./pages/services/Driveways'))
@@ -59,6 +60,7 @@ function App() {
                 <Route path="/faq" element={<FAQ />} />
                 <Route path="/blog" element={<BlogIndex />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />
+                <Route path="/estimates" element={<Estimates />} /> {/* ✅ NEW ROUTE */}
 
                 {/* Service Subpages */}
                 <Route path="/services/driveways" element={<Driveways />} />
@@ -85,4 +87,3 @@ function App() {
 }
 
 export default App
-
