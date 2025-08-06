@@ -18,7 +18,6 @@ const Home = () => {
           content="Serving Concord and surrounding areas with expert concrete driveways, patios, and sidewalks. Free estimates from licensed professionals."
         />
         <meta property="og:type" content="website" />
-        {/* LocalBusiness Schema */}
         <script type="application/ld+json">{`
         {
           "@context": "https://schema.org",
@@ -51,7 +50,7 @@ const Home = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-white text-gray-900 hover:bg-gray-100">
-                <Link to="/contact">Get Free Quote</Link>
+                <Link to="/estimates">Get an Estimate</Link>
               </Button>
               <Button asChild size="lg" className="bg-white text-gray-900 hover:bg-gray-100">
                 <Link to="/gallery">View Our Work</Link>
@@ -147,7 +146,6 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Business Info Block (for trust) */}
           <div className="text-center mt-12 text-sm text-muted-foreground">
             <p>Black Knight Solutions LLC · Licensed & Insured · Concord, NC 28025</p>
           </div>
@@ -158,3 +156,4 @@ const Home = () => {
 }
 
 export default Home
+
