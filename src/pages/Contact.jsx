@@ -14,7 +14,6 @@ const Contact = () => {
     message: ''
   })
 
-  // Prefill message from URL param (e.g., ?message=...)
   useEffect(() => {
     const params = new URLSearchParams(location.search)
     const messageFromUrl = params.get('message')
@@ -56,15 +55,9 @@ const Contact = () => {
     <div className="min-h-screen bg-gray-50 py-16">
       <Helmet>
         <title>Contact Black Knight Solutions | Free Concrete Estimate in Concord NC</title>
-        <meta
-          name="description"
-          content="Contact Black Knight Solutions for residential concrete services in Concord, NC. Free estimates and friendly support for driveways, patios, walkways, and more."
-        />
+        <meta name="description" content="Contact Black Knight Solutions for residential concrete services in Concord, NC. Free estimates and friendly support for driveways, patios, walkways, and more." />
         <meta property="og:title" content="Get a Free Concrete Quote | Black Knight Solutions" />
-        <meta
-          property="og:description"
-          content="Reach out to Black Knight Solutions for expert concrete work in Concord, NC and surrounding areas. Free estimates, fast response."
-        />
+        <meta property="og:description" content="Reach out to Black Knight Solutions for expert concrete work in Concord, NC and surrounding areas. Free estimates, fast response." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://blackknight.hometownwebco.com/contact" />
         <script type="application/ld+json">{`
@@ -84,7 +77,7 @@ const Contact = () => {
                 "@type": "ContactPoint",
                 "telephone": "+1-704-787-4975",
                 "contactType": "Customer Service",
-                "email": "info@blackknightsolutions.com"
+                "email": "info@bksconcrete.com"
               },
               "areaServed": {
                 "@type": "Place",
@@ -111,9 +104,7 @@ const Contact = () => {
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Get Your Free Quote</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                  Full Name *
-                </label>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
                 <input
                   type="text"
                   id="name"
@@ -127,9 +118,7 @@ const Contact = () => {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                  Email Address *
-                </label>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
                 <input
                   type="email"
                   id="email"
@@ -143,9 +132,7 @@ const Contact = () => {
               </div>
 
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                  Phone Number
-                </label>
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
                 <input
                   type="tel"
                   id="phone"
@@ -158,9 +145,7 @@ const Contact = () => {
               </div>
 
               <div>
-                <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
-                  Service Needed
-                </label>
+                <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">Service Needed</label>
                 <select
                   id="service"
                   name="service"
@@ -180,9 +165,7 @@ const Contact = () => {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  Project Details *
-                </label>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">Project Details *</label>
                 <textarea
                   id="message"
                   name="message"
@@ -202,8 +185,40 @@ const Contact = () => {
             </form>
           </div>
 
-          {/* Contact Info section remains unchanged */}
-          {/* ... */}
+          {/* Contact Information */}
+          <div className="flex flex-col justify-center bg-white rounded-lg shadow-lg p-8 text-gray-800">
+            <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
+            <ul className="space-y-5 text-md">
+              <li className="flex items-start">
+                <Phone className="w-5 h-5 mr-3 mt-1 text-primary" />
+                <div>
+                  <span className="font-semibold">Phone:</span><br />
+                  <a href="tel:7047874975" className="hover:underline">(704) 787-4975</a>
+                </div>
+              </li>
+              <li className="flex items-start">
+                <Mail className="w-5 h-5 mr-3 mt-1 text-primary" />
+                <div>
+                  <span className="font-semibold">Email:</span><br />
+                  <a href="mailto:info@bksconcrete.com" className="hover:underline">info@bksconcrete.com</a>
+                </div>
+              </li>
+              <li className="flex items-start">
+                <MapPin className="w-5 h-5 mr-3 mt-1 text-primary" />
+                <div>
+                  <span className="font-semibold">Location:</span><br />
+                  Concord, NC and surrounding areas
+                </div>
+              </li>
+              <li className="flex items-start">
+                <Clock className="w-5 h-5 mr-3 mt-1 text-primary" />
+                <div>
+                  <span className="font-semibold">Business Hours:</span><br />
+                  Mon–Fri: 7AM–6PM
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -211,4 +226,3 @@ const Contact = () => {
 }
 
 export default Contact
-

@@ -52,9 +52,8 @@ const Footer = () => {
         <div>
           <h2 className="text-base font-semibold text-gray-900 mb-4">Legal & Info</h2>
           <ul className="space-y-2">
-            <li><Link to="/privacy-policy" className="hover:underline">Privacy Policy</Link></li>
-            <li><Link to="/terms-of-use" className="hover:underline">Terms of Use</Link></li>
-            <li><Link to="/affiliate-disclosure" className="hover:underline">Affiliate Disclosure</Link></li>
+            <li><Link to="/privacy" className="hover:underline">Privacy Policy</Link></li>
+            <li><Link to="/terms" className="hover:underline">Terms of Use</Link></li>
           </ul>
         </div>
       </div>
@@ -67,3 +66,4 @@ const Footer = () => {
 }
 
 export default Footer
+
