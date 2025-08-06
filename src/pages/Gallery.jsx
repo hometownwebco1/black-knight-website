@@ -23,7 +23,7 @@ const Gallery = () => {
     {
       id: 3,
       image: '/images/cranejobmiddle.jpeg',
-      title: 'Commercial Crane Pour',
+      title: 'Commercial Pour',
       description: 'Large-scale commercial job.'
     },
     {
