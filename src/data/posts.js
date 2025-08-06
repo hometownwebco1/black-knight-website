@@ -151,12 +151,13 @@ If you're ready to reclaim your backyard, a concrete patio from Black Knight Sol
 <p>Unlike generic calculators, we include cost variables that actually matter — from surface finish to site prep complexity. You’ll also see explanations for every input field, making the tools senior-friendly and first-timer approved.</p>
 
 <h2>Try Them Now</h2>
-<ul>
-  <li>🔹 <a href="/estimates#driveway">Use the Driveway Calculator</a></li>
-  <li>🔹 <a href="/estimates#slab">Use the Slab Calculator</a></li>
-</ul>
+<p>
+🔹 <a href="/estimates#driveway" style="color: #2563eb; text-decoration: underline;">Use the Driveway Calculator</a><br />
+🔹 <a href="/estimates#slab" style="color: #2563eb; text-decoration: underline;">Use the Slab Calculator</a>
+</p>
 
 <p>Whether you’re planning a fresh driveway pour or installing a stamped concrete patio, these tools are here to make your life easier. And of course — if you’d like a personalized, on-site quote, we’re just a <a href="/contact">message away</a>.</p>
 `
   }
 ];
+
