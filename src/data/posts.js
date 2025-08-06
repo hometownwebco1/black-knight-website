@@ -130,5 +130,33 @@ From established neighborhoods to new developments, homeowners in Harrisburg are
 
 If you're ready to reclaim your backyard, a concrete patio from Black Knight Solutions is a smart, stylish step forward. Get in touch for a quote—we’d love to help you build the perfect outdoor foundation.
 `
+  },
+  {
+    title: 'New Concrete Calculator Tools: Get Instant Driveway & Slab Estimates',
+    slug: 'concrete-calculator-driveway-slab',
+    date: '2025-08-06',
+    excerpt: 'Introducing our new interactive concrete driveway and slab calculators — built to give you instant, accurate pricing and help you plan smarter.',
+    tags: ['Concrete Calculators', 'Driveway', 'Slab', 'Estimating Tools', 'Home Improvement'],
+    content: `
+<p>We’re excited to introduce two powerful new tools on our website — the <strong>Driveway Concrete Calculator</strong> and the <strong>Slab Concrete Calculator</strong>. These free tools are designed to help homeowners and contractors estimate their concrete needs and project costs quickly and confidently.</p>
+
+<h2>Why Use Our Concrete Calculators?</h2>
+<ul>
+  <li><strong>Accurate Pricing:</strong> Enter your project dimensions and get a real-world estimate range based on current market prices.</li>
+  <li><strong>Time-Saving:</strong> No waiting for quotes — get instant estimates online 24/7.</li>
+  <li><strong>Smart Planning:</strong> Choose from options like broomed or stamped finishes, and indicate how much grading is needed to fine-tune your estimate.</li>
+</ul>
+
+<h2>What Makes Ours Better?</h2>
+<p>Unlike generic calculators, we include cost variables that actually matter — from surface finish to site prep complexity. You’ll also see explanations for every input field, making the tools senior-friendly and first-timer approved.</p>
+
+<h2>Try Them Now</h2>
+<ul>
+  <li>🔹 <a href="/estimates#driveway">Use the Driveway Calculator</a></li>
+  <li>🔹 <a href="/estimates#slab">Use the Slab Calculator</a></li>
+</ul>
+
+<p>Whether you’re planning a fresh driveway pour or installing a stamped concrete patio, these tools are here to make your life easier. And of course — if you’d like a personalized, on-site quote, we’re just a <a href="/contact">message away</a>.</p>
+`
   }
 ];
