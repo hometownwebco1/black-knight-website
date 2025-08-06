@@ -3,6 +3,7 @@ import { Suspense, lazy } from 'react'
 import { Helmet, HelmetProvider } from 'react-helmet-async'
 import Navigation from './components/Navigation'
 import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop' // ✅ ADDED
 import './App.css'
 
 // Lazy-loaded core pages
@@ -14,7 +15,7 @@ const FAQ = lazy(() => import('./pages/FAQ'))
 const BlogIndex = lazy(() => import('./pages/blog/BlogIndex'))
 const BlogPost = lazy(() => import('./pages/blog/Post'))
 const NotFound = lazy(() => import('./pages/NotFound'))
-const Estimates = lazy(() => import('./pages/Estimates')) // ✅ ADDED
+const Estimates = lazy(() => import('./pages/Estimates'))
 
 // Lazy-loaded service subpages
 const Driveways = lazy(() => import('./pages/services/Driveways'))
@@ -32,6 +33,8 @@ function App() {
   return (
     <HelmetProvider>
       <Router>
+        <ScrollToTop /> {/* ✅ Auto-scroll on route change */}
+
         <Helmet>
           {/* Google Analytics */}
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-V81D4JK8E6"></script>
@@ -60,7 +63,7 @@ function App() {
                 <Route path="/faq" element={<FAQ />} />
                 <Route path="/blog" element={<BlogIndex />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />
-                <Route path="/estimates" element={<Estimates />} /> {/* ✅ NEW ROUTE */}
+                <Route path="/estimates" element={<Estimates />} />
 
                 {/* Service Subpages */}
                 <Route path="/services/driveways" element={<Driveways />} />
