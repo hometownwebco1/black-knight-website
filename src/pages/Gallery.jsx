@@ -121,9 +121,9 @@ const Gallery = () => {
           <p className="text-lg text-gray-600 mb-8">
             Contact us today for a free estimate on your concrete project.
           </p>
-          <Link to="/contact">
+          <Link to="/estimates">
             <Button size="lg" className="bg-primary hover:bg-primary/90">
-              Get Free Quote
+              Get an Estimate
             </Button>
           </Link>
         </div>
