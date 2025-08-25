@@ -1,4 +1,17 @@
+# robots.txt for Black Knight Solutions (bksconcrete.com)
+
 User-agent: *
 Allow: /
 
-Sitemap: https://www.blackknightsolutions.com/sitemap.xml
+# Block common non-public paths (adjust/remove if not used)
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /drafts/
+Disallow: /temp/
+
+# Crawl-delay is ignored by Google but respected by some bots (optional)
+# Crawl-delay: 10
+
+# Point bots to your sitemap
+Sitemap: https://www.bksconcrete.com/sitemap.xml

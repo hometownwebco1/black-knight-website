@@ -1,14 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.blackknightsolutions.com/</loc></url>
-  <url><loc>https://www.blackknightsolutions.com/services</loc></url>
-  <url><loc>https://www.blackknightsolutions.com/services/driveways</loc></url>
-  <url><loc>https://www.blackknightsolutions.com/services/patios</loc></url>
-  <url><loc>https://www.blackknightsolutions.com/services/sidewalks</loc></url>
-  <url><loc>https://www.blackknightsolutions.com/services/garage-floors</loc></url>
-  <url><loc>https://www.blackknightsolutions.com/services/pool-decks</loc></url>
-  <url><loc>https://www.blackknightsolutions.com/services/retaining-walls</loc></url>
-  <url><loc>https://www.blackknightsolutions.com/contact</loc></url>
-  <url><loc>https://www.blackknightsolutions.com/faq</loc></url>
-  <url><loc>https://www.blackknightsolutions.com/blog</loc></url>
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://www.blackknightsolutions.com/</loc>
+    <lastmod>2025-08-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Services overview -->
+  <url>
+    <loc>https://www.blackknightsolutions.com/services</loc>
+    <lastmod>2025-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Individual service pages -->
+  <url>
+    <loc>https://www.blackknightsolutions.com/services/driveways</loc>
+    <lastmod>2025-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.blackknightsolutions.com/services/patios</loc>
+    <lastmod>2025-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.blackknightsolutions.com/services/sidewalks</loc>
+    <lastmod>2025-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.blackknightsolutions.com/services/garage-floors</loc>
+    <lastmod>2025-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.blackknightsolutions.com/services/pool-decks</loc>
+    <lastmod>2025-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.blackknightsolutions.com/services/retaining-walls</loc>
+    <lastmod>2025-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Other key pages -->
+  <url>
+    <loc>https://www.blackknightsolutions.com/contact</loc>
+    <lastmod>2025-08-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.blackknightsolutions.com/faq</loc>
+    <lastmod>2025-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.blackknightsolutions.com/blog</loc>
+    <lastmod>2025-08-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
