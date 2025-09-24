@@ -3,7 +3,8 @@ import { Helmet } from 'react-helmet'
 import { Button } from '@/components/ui/button'
 import { Home, Car, Footprints, Building, Wrench, Shield } from 'lucide-react'
 
-const slugify = (str: string) =>
+// JS version (no TypeScript types)
+const slugify = (str) =>
   str.toLowerCase().replace(/&/g, 'and').replace(/[^\w\s-]/g, '').replace(/\s+/g, '-')
 
 const Services = () => {
@@ -11,39 +12,65 @@ const Services = () => {
     {
       icon: <Car size={32} />,
       title: 'Driveways',
-      description: 'Professional driveway installation and repair. We create durable, attractive driveways that enhance your property value and provide years of reliable service.',
-      features: ['New driveway installation', 'Driveway repair and resurfacing', 'Decorative concrete options', 'Proper drainage solutions']
+      description:
+        'Professional driveway installation and repair. We create durable, attractive driveways that enhance your property value and provide years of reliable service.',
+      features: [
+        'New driveway installation',
+        'Driveway repair and resurfacing',
+        'Decorative concrete options',
+        'Proper drainage solutions',
+      ],
     },
     {
       icon: <Home size={32} />,
       title: 'Patios & Porches',
-      description: 'Transform your outdoor living space with custom concrete patios and porches. Perfect for entertaining, relaxation, and adding value to your home.',
-      features: ['Custom patio design', 'Stamped concrete patterns', 'Colored concrete options', 'Porch construction and repair']
+      description:
+        'Transform your outdoor living space with custom concrete patios and porches. Perfect for entertaining, relaxation, and adding value to your home.',
+      features: [
+        'Custom patio design',
+        'Stamped concrete patterns',
+        'Colored concrete options',
+        'Porch construction and repair',
+      ],
     },
     {
       icon: <Footprints size={32} />,
       title: 'Sidewalks & Walkways',
-      description: 'Safe, attractive sidewalks and walkways that connect your property beautifully. We ensure proper grading and long-lasting construction.',
-      features: ['Residential sidewalks', 'Garden walkways', 'ADA compliant construction', 'Decorative walkway options']
+      description:
+        'Safe, attractive sidewalks and walkways that connect your property beautifully. We ensure proper grading and long-lasting construction.',
+      features: [
+        'Residential sidewalks',
+        'Garden walkways',
+        'ADA compliant construction',
+        'Decorative walkway options',
+      ],
     },
     {
       icon: <Building size={32} />,
       title: 'Foundations',
-      description: 'Solid foundation work for residential structures. We provide the strong base your project needs with precision and expertise.',
-      features: ['House foundations', 'Garage foundations', 'Shed and outbuilding foundations', 'Foundation repair services']
+      description:
+        'Solid foundation work for residential structures. We provide the strong base your project needs with precision and expertise.',
+      features: [
+        'House foundations',
+        'Garage foundations',
+        'Shed and outbuilding foundations',
+        'Foundation repair services',
+      ],
     },
     {
       icon: <Wrench size={32} />,
       title: 'Concrete Repair',
-      description: 'Expert repair services for existing concrete structures. We restore functionality and appearance to damaged concrete surfaces.',
-      features: ['Crack repair', 'Surface restoration', 'Joint sealing', 'Concrete resurfacing']
+      description:
+        'Expert repair services for existing concrete structures. We restore functionality and appearance to damaged concrete surfaces.',
+      features: ['Crack repair', 'Surface restoration', 'Joint sealing', 'Concrete resurfacing'],
     },
     {
       icon: <Shield size={32} />,
       title: 'Protective Coatings',
-      description: 'Extend the life of your concrete with professional sealing and protective coatings. Protect against weather, stains, and wear.',
-      features: ['Concrete sealing', 'Waterproofing', 'Stain protection', 'Anti-slip coatings']
-    }
+      description:
+        'Extend the life of your concrete with professional sealing and protective coatings. Protect against weather, stains, and wear.',
+      features: ['Concrete sealing', 'Waterproofing', 'Stain protection', 'Anti-slip coatings'],
+    },
   ]
 
   return (
@@ -68,10 +95,7 @@ const Services = () => {
             "provider": {
               "@type": "LocalBusiness",
               "name": "Black Knight Solutions",
-              "areaServed": {
-                "@type": "Place",
-                "name": "Concord NC"
-              },
+              "areaServed": { "@type": "Place", "name": "Concord NC" },
               "url": "https://blackknight.hometownwebco.com/services"
             },
             "description": "Driveways, patios, sidewalks, foundations and concrete repair services in Concord, NC."
@@ -79,14 +103,14 @@ const Services = () => {
         `}</script>
       </Helmet>
 
-      {/* Hero Section */}
+      {/* Hero */}
       <div className="relative w-full h-96 mb-16">
         <img
           src="/images/servicepagehero.jpeg"
           alt="Black Knight Solutions concrete services hero"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow-lg">Our Services</h1>
         </div>
       </div>
@@ -109,7 +133,7 @@ const Services = () => {
                 <ul className="space-y-2">
                   {service.features.map((feature, i) => (
                     <li key={i} className="flex items-start">
-                      <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0" />
                       <span className="text-gray-700 text-sm">{feature}</span>
                     </li>
                   ))}
