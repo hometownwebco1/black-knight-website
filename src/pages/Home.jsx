@@ -38,23 +38,32 @@ const Home = () => {
         `}</script>
       </Helmet>
 
-      {/* Hero Section */}
-      <section className="bg-black text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Concrete Driveways, Patios & Sidewalks
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-gray-300">
-              Reliable residential concrete services in Concord, NC & surrounding areas.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-white text-gray-900 hover:bg-gray-100">
-                <Link to="/estimates">Get an Estimate</Link>
-              </Button>
-              <Button asChild size="lg" className="bg-white text-gray-900 hover:bg-gray-100">
-                <Link to="/gallery">View Our Work</Link>
-              </Button>
+      {/* Hero Section with image */}
+      <section className="relative w-full h-[28rem] md:h-[34rem]">
+        <img
+          src="/images/homepagehero.jpeg"
+          alt="Freshly poured concrete driveway in Concord, NC"
+          className="w-full h-full object-cover"
+          fetchpriority="high"
+        />
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 flex items-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div className="text-center text-white">
+              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                Concrete Driveways, Patios &amp; Sidewalks
+              </h1>
+              <p className="text-xl md:text-2xl mb-8 text-gray-100">
+                Reliable residential concrete services in Concord, NC &amp; surrounding areas.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button asChild size="lg" className="bg-white text-gray-900 hover:bg-gray-100">
+                  <Link to="/estimates">Get an Estimate</Link>
+                </Button>
+                <Button asChild size="lg" className="bg-white text-gray-900 hover:bg-gray-100">
+                  <Link to="/gallery">View Our Work</Link>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
@@ -128,7 +137,7 @@ const Home = () => {
                 <Phone size={24} />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Call Us</h3>
-              <p className="text-gray-600">(704) 555-0123</p>
+              <p className="text-gray-600">(704) 787-4975</p>
             </div>
             <div className="text-center">
               <div className="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -156,4 +165,3 @@ const Home = () => {
 }
 
 export default Home
-
