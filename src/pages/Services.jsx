@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'
 import { Button } from '@/components/ui/button'
 import { Home, Car, Footprints, Building, Wrench, Shield } from 'lucide-react'
 
-const slugify = (str) =>
+const slugify = (str: string) =>
   str.toLowerCase().replace(/&/g, 'and').replace(/[^\w\s-]/g, '').replace(/\s+/g, '-')
 
 const Services = () => {
@@ -47,7 +47,7 @@ const Services = () => {
   ]
 
   return (
-    <div className="min-h-screen bg-white py-16">
+    <div className="min-h-screen bg-white">
       <Helmet>
         <title>Concrete Services | Black Knight Solutions | Concord NC</title>
         <meta
@@ -79,9 +79,20 @@ const Services = () => {
         `}</script>
       </Helmet>
 
+      {/* Hero Section */}
+      <div className="relative w-full h-96 mb-16">
+        <img
+          src="/images/servicepagehero.jpeg"
+          alt="Black Knight Solutions concrete services hero"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow-lg">Our Services</h1>
+        </div>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Services</h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Black Knight Solutions offers comprehensive residential concrete services in Concord, NC.
             From new installations to repairs, we deliver quality workmanship on every project.
