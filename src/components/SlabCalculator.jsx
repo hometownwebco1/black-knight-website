@@ -1,3 +1,4 @@
+// src/components/SlabCalculator.jsx
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
@@ -11,7 +12,7 @@ const SlabCalculator = () => {
   const [submitted, setSubmitted] = useState(false)
   const navigate = useNavigate()
 
-  const sqft = Number(length) * Number(width)
+  const sqft = Number(length || 0) * Number(width || 0)
 
   const rates = {
     Broomed: { min: 11.75, max: 14.0 },
@@ -23,6 +24,7 @@ const SlabCalculator = () => {
   const estMax = (sqft * max).toFixed(2)
 
   const handleSubmit = (e) => {
+    // Keep client-side flow but add method="get" for semantics/SEO
     e.preventDefault()
     setSubmitted(true)
   }
@@ -47,6 +49,7 @@ const SlabCalculator = () => {
           name="description"
           content="Get a free estimate for your concrete patio or walkway project. Choose broomed or stamped finish, grading level, and access difficulty to refine your quote."
         />
+        <link rel="canonical" href="https://www.bksconcrete.com/estimates/slab" />
       </Helmet>
 
       <h2 className="text-4xl font-bold mb-4">Slab Cost Estimator</h2>
@@ -57,34 +60,52 @@ const SlabCalculator = () => {
         Includes pricing for broomed or stamped finishes and basic site condition options.
       </p>
 
-      <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* FIX: add method attribute; preserve client-side behavior */}
+      <form
+        method="get"
+        onSubmit={handleSubmit}
+        className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        noValidate
+      >
         <div>
-          <label className="block mb-2 font-semibold">Length (ft)</label>
+          <label htmlFor="slab-length" className="block mb-2 font-semibold">Length (ft)</label>
           <input
+            id="slab-length"
+            name="length"
             type="number"
+            inputMode="decimal"
             min="0"
+            step="0.01"
             value={length}
             onChange={(e) => setLength(e.target.value)}
             className="w-full p-2 border rounded"
+            placeholder="e.g., 20"
             required
           />
         </div>
 
         <div>
-          <label className="block mb-2 font-semibold">Width (ft)</label>
+          <label htmlFor="slab-width" className="block mb-2 font-semibold">Width (ft)</label>
           <input
+            id="slab-width"
+            name="width"
             type="number"
+            inputMode="decimal"
             min="0"
+            step="0.01"
             value={width}
             onChange={(e) => setWidth(e.target.value)}
             className="w-full p-2 border rounded"
+            placeholder="e.g., 12"
             required
           />
         </div>
 
         <div className="md:col-span-2">
-          <label className="block mb-2 font-semibold">Finish Type</label>
+          <label htmlFor="slab-finish" className="block mb-2 font-semibold">Finish Type</label>
           <select
+            id="slab-finish"
+            name="finish"
             value={finish}
             onChange={(e) => setFinish(e.target.value)}
             className="w-full p-2 border rounded"
@@ -95,8 +116,10 @@ const SlabCalculator = () => {
         </div>
 
         <div className="md:col-span-2">
-          <label className="block mb-2 font-semibold">Grading Required</label>
+          <label htmlFor="slab-grading" className="block mb-2 font-semibold">Grading Required</label>
           <select
+            id="slab-grading"
+            name="grading"
             value={grading}
             onChange={(e) => setGrading(e.target.value)}
             className="w-full p-2 border rounded"
@@ -108,8 +131,10 @@ const SlabCalculator = () => {
         </div>
 
         <div className="md:col-span-2">
-          <label className="block mb-2 font-semibold">Access Difficulty</label>
+          <label htmlFor="slab-access" className="block mb-2 font-semibold">Access Difficulty</label>
           <select
+            id="slab-access"
+            name="access"
             value={access}
             onChange={(e) => setAccess(e.target.value)}
             className="w-full p-2 border rounded"
@@ -128,7 +153,7 @@ const SlabCalculator = () => {
       </form>
 
       {submitted && (
-        <div className="mt-10 bg-gray-100 p-6 rounded shadow">
+        <div className="mt-10 bg-gray-100 p-6 rounded shadow" aria-live="polite" aria-atomic="true">
           <h3 className="text-xl font-bold mb-4">Your Estimate</h3>
           <ul className="mb-4 space-y-1 text-gray-700">
             <li><strong>Area:</strong> {sqft} sqft</li>
@@ -153,3 +178,4 @@ const SlabCalculator = () => {
 }
 
 export default SlabCalculator
+
