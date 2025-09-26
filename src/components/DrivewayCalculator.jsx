@@ -1,3 +1,4 @@
+// src/components/DrivewayCalculator.jsx
 import { useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { useNavigate } from 'react-router-dom'
@@ -13,18 +14,19 @@ const DrivewayCalculator = () => {
 
   const rateMin = 12.2
   const rateMax = 15.7
-  const sqft = Number(length) * Number(width)
+  const sqft = Number(length || 0) * Number(width || 0)
   const estMin = (sqft * rateMin).toFixed(2)
   const estMax = (sqft * rateMax).toFixed(2)
 
   const handleSubmit = (e) => {
+    // We include method="get" for correctness/SEO but still prevent a page nav
     e.preventDefault()
     setSubmitted(true)
   }
 
   const handleQuoteRequest = () => {
     const prefill = `Hi, I used the driveway calculator. Here's my estimate:
-    
+
 - Area: ${sqft} sqft
 - Finish: ${finish}
 - Grading: ${grading}
@@ -42,6 +44,7 @@ const DrivewayCalculator = () => {
           name="description"
           content="Use our free calculator to estimate your concrete driveway cost. Includes finish type, grading, and site access options. Plan your project with confidence."
         />
+        <link rel="canonical" href="https://www.bksconcrete.com/estimates/driveway" />
       </Helmet>
 
       <h1 className="text-4xl font-bold mb-4">Driveway Cost Estimator</h1>
@@ -52,34 +55,58 @@ const DrivewayCalculator = () => {
         Pricing is based on turn-down slab construction in North Carolina.
       </p>
 
-      <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* FIX: add method for form semantics; keep client-side submit */}
+      <form
+        method="get"
+        onSubmit={handleSubmit}
+        className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        noValidate
+      >
         <div>
-          <label className="block mb-2 font-semibold">Length (ft)</label>
+          <label htmlFor="length" className="block mb-2 font-semibold">
+            Length (ft)
+          </label>
           <input
+            id="length"
+            name="length"
             type="number"
+            inputMode="decimal"
             min="0"
+            step="0.01"
             value={length}
             onChange={(e) => setLength(e.target.value)}
             className="w-full p-2 border rounded"
+            placeholder="e.g., 40"
             required
           />
         </div>
 
         <div>
-          <label className="block mb-2 font-semibold">Width (ft)</label>
+          <label htmlFor="width" className="block mb-2 font-semibold">
+            Width (ft)
+          </label>
           <input
+            id="width"
+            name="width"
             type="number"
+            inputMode="decimal"
             min="0"
+            step="0.01"
             value={width}
             onChange={(e) => setWidth(e.target.value)}
             className="w-full p-2 border rounded"
+            placeholder="e.g., 12"
             required
           />
         </div>
 
         <div className="md:col-span-2">
-          <label className="block mb-2 font-semibold">Finish Type</label>
+          <label htmlFor="finish" className="block mb-2 font-semibold">
+            Finish Type
+          </label>
           <select
+            id="finish"
+            name="finish"
             value={finish}
             onChange={(e) => setFinish(e.target.value)}
             className="w-full p-2 border rounded"
@@ -90,8 +117,12 @@ const DrivewayCalculator = () => {
         </div>
 
         <div className="md:col-span-2">
-          <label className="block mb-2 font-semibold">Grading Required</label>
+          <label htmlFor="grading" className="block mb-2 font-semibold">
+            Grading Required
+          </label>
           <select
+            id="grading"
+            name="grading"
             value={grading}
             onChange={(e) => setGrading(e.target.value)}
             className="w-full p-2 border rounded"
@@ -103,8 +134,12 @@ const DrivewayCalculator = () => {
         </div>
 
         <div className="md:col-span-2">
-          <label className="block mb-2 font-semibold">Access Difficulty</label>
+          <label htmlFor="access" className="block mb-2 font-semibold">
+            Access Difficulty
+          </label>
           <select
+            id="access"
+            name="access"
             value={access}
             onChange={(e) => setAccess(e.target.value)}
             className="w-full p-2 border rounded"
@@ -126,7 +161,11 @@ const DrivewayCalculator = () => {
       </form>
 
       {submitted && (
-        <div className="mt-10 bg-gray-100 p-6 rounded shadow">
+        <div
+          className="mt-10 bg-gray-100 p-6 rounded shadow"
+          aria-live="polite"
+          aria-atomic="true"
+        >
           <h2 className="text-xl font-bold mb-4">Your Estimate</h2>
           <ul className="mb-4 space-y-1 text-gray-700">
             <li><strong>Area:</strong> {sqft} sqft</li>
@@ -151,4 +190,3 @@ const DrivewayCalculator = () => {
 }
 
 export default DrivewayCalculator
-
