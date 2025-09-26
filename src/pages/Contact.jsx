@@ -77,46 +77,56 @@ const Contact = () => {
     }
   };
 
-  const title = "Contact Black Knight Solutions | Free Concrete Estimate in Concord, NC";
+  const title =
+    "Contact Black Knight Solutions | Free Concrete Estimate in Concord, NC";
   const description =
     "Contact Black Knight Solutions for residential concrete services in Concord, NC. Free estimates for driveways, patios, sidewalks, garage slabs, and more.";
 
-  // FAQ: We already publish LocalBusiness JSON-LD in index.html.
-  // Here we add ContactPage + Breadcrumb to avoid duplicating business data.
+  // JSON-LD (ContactPage + crumb) — standardized to bksconcrete.com
   const contactPageJsonLd = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    "mainEntity": {
+    mainEntity: {
       "@type": "LocalBusiness",
-      "name": "Black Knight Solutions",
-      "url": "https://www.blackknightsolutions.com",
-      "address": {
+      name: "Black Knight Solutions",
+      url: "https://www.bksconcrete.com",
+      address: {
         "@type": "PostalAddress",
-        "addressLocality": "Concord",
-        "addressRegion": "NC",
-        "addressCountry": "US"
+        addressLocality: "Concord",
+        addressRegion: "NC",
+        addressCountry: "US",
       },
-      "contactPoint": {
+      contactPoint: {
         "@type": "ContactPoint",
-        "telephone": "+1-704-787-4975",
-        "email": "info@bksconcrete.com",
-        "contactType": "customer service",
-        "availableLanguage": "English"
+        telephone: "+1-704-787-4975",
+        email: "info@bksconcrete.com",
+        contactType: "customer service",
+        availableLanguage: "English",
       },
-      "areaServed": {
+      areaServed: {
         "@type": "Place",
-        "name": "Concord NC and surrounding areas"
-      }
-    }
+        name: "Concord NC and surrounding areas",
+      },
+    },
   };
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.blackknightsolutions.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://www.blackknightsolutions.com/contact" }
-    ]
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://www.bksconcrete.com/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Contact",
+        item: "https://www.bksconcrete.com/contact",
+      },
+    ],
   };
 
   return (
@@ -124,20 +134,20 @@ const Contact = () => {
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
-        <link rel="canonical" href="https://www.blackknightsolutions.com/contact" />
+        <link rel="canonical" href="https://www.bksconcrete.com/contact" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:url" content="https://www.blackknightsolutions.com/contact" />
-        <meta property="og:image" content="https://www.blackknightsolutions.com/favicon.ico" />
+        <meta property="og:url" content="https://www.bksconcrete.com/contact" />
+        <meta property="og:image" content="https://www.bksconcrete.com/favicon.ico" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content="https://www.blackknightsolutions.com/favicon.ico" />
+        <meta name="twitter:image" content="https://www.bksconcrete.com/favicon.ico" />
 
         {/* JSON-LD */}
         <script type="application/ld+json">
@@ -150,10 +160,12 @@ const Contact = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Contact Us</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Contact Us
+          </h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Ready to start your concrete project? Get in touch with Black Knight Solutions today.
-            We provide free estimates and fast answers.
+            Ready to start your concrete project? Get in touch with Black Knight
+            Solutions today. We provide free estimates and fast answers.
           </p>
         </div>
 
@@ -173,8 +185,12 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div className="bg-white rounded-lg shadow-lg p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Get Your Free Quote</h2>
-            <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+              Get Your Free Quote
+            </h2>
+
+            {/* FIX: add method attribute for semantics; keep client-side submit */}
+            <form method="post" onSubmit={handleSubmit} className="space-y-6" noValidate>
               {/* Spam trap (hidden) */}
               <input
                 ref={honeypotRef}
@@ -187,7 +203,10 @@ const Contact = () => {
               />
 
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Full Name <span className="text-red-600">*</span>
                 </label>
                 <input
@@ -199,11 +218,15 @@ const Contact = () => {
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                   placeholder="Your full name"
+                  autoComplete="name"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Email Address <span className="text-red-600">*</span>
                 </label>
                 <input
@@ -215,11 +238,15 @@ const Contact = () => {
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                   placeholder="your.email@example.com"
+                  autoComplete="email"
                 />
               </div>
 
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Phone Number
                 </label>
                 <input
@@ -230,11 +257,15 @@ const Contact = () => {
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                   placeholder="(704) 787-4975"
+                  autoComplete="tel"
                 />
               </div>
 
               <div>
-                <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="service"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Service Needed
                 </label>
                 <select
@@ -256,7 +287,10 @@ const Contact = () => {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Project Details <span className="text-red-600">*</span>
                 </label>
                 <textarea
