@@ -3,15 +3,15 @@
 User-agent: *
 Allow: /
 
-# Block common non-public paths (adjust/remove if not used)
+# Block common non-public paths (safe defaults, remove if you actually use them)
 Disallow: /api/
 Disallow: /admin/
 Disallow: /private/
 Disallow: /drafts/
 Disallow: /temp/
 
-# Crawl-delay is ignored by Google but respected by some bots (optional)
+# Optional: Crawl-delay (ignored by Google, respected by Bing/Yandex, etc.)
 # Crawl-delay: 10
 
-# Point bots to your sitemap
+# Explicit sitemap reference (matches your canonical domain + updated sitemap)
 Sitemap: https://www.bksconcrete.com/sitemap.xml
