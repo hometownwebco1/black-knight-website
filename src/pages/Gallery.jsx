@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null)
 
-  // NOTE: These thumbnail paths stayed the same. They point at /public/images/*
+  // Thumbnails (these already live in /public/images)
   const projects = [
     { id: 1, image: '/images/drivewaypouronnewbuild1.jpeg', title: 'New Driveway Installation', description: 'Brand new driveway on a new build home.' },
     { id: 2, image: '/images/pationexttoscreenporch.jpeg', title: 'Residential Patio', description: 'New residential patio.' },
@@ -20,7 +20,7 @@ const Gallery = () => {
   const openModal = (project) => setSelectedImage(project)
   const closeModal = () => setSelectedImage(null)
 
-  const HERO = '/images-optimized/galleryhero.jpeg'
+  const HERO = '/images-optimized/galleryhero.jpeg' // lives in /public/images-optimized/
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -89,7 +89,7 @@ const Gallery = () => {
 
         <div className="text-center mt-16">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Ready to Start Your Project?</h2>
-          <p className="text-lg text-gray-600 mb-8">
+        <p className="text-lg text-gray-600 mb-8">
             Contact us today for a free estimate on your concrete project.
           </p>
           <Link to="/estimates">
@@ -131,5 +131,6 @@ const Gallery = () => {
 }
 
 export default Gallery
+
 
 
