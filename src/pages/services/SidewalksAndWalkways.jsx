@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 
 export default function Sidewalks() {
+  // Absolute URL to remove any doubt about base paths/rewrite behavior
+  const HERO =
+    'https://www.bksconcrete.com/images-optimized/sidewalksservicesheroimage.jpeg'
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Helmet>
@@ -16,11 +20,10 @@ export default function Sidewalks() {
           property="og:description"
           content="Residential and light-commercial walkways with proper slope and control joints."
         />
-        {/* ✅ Correct path — exactly as in /public/images-optimized */}
-        <meta property="og:image" content="/images-optimized/sidewalksservicesheroimage.jpeg" />
+        <meta property="og:image" content={HERO} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.bksconcrete.com/services/sidewalks" />
-        <link rel="preload" as="image" href="/images-optimized/sidewalksservicesheroimage.jpeg" />
+        <link rel="preload" as="image" href={HERO} />
         <script type="application/ld+json">{`
           {
             "@context": "https://schema.org",
@@ -35,7 +38,7 @@ export default function Sidewalks() {
       {/* HERO SECTION */}
       <section className="relative w-full h-[320px] md:h-[420px] lg:h-[480px]">
         <img
-          src="/images-optimized/sidewalksservicesheroimage.jpeg"
+          src={HERO}
           alt="Concrete sidewalk installation in Concord NC"
           className="absolute inset-0 w-full h-full object-cover"
           loading="eager"
@@ -63,7 +66,6 @@ export default function Sidewalks() {
               <li>Home entry walks and garden paths</li>
             </ul>
           </div>
-
           <aside className="lg:col-span-1">
             <div className="bg-white rounded-lg shadow p-6">
               <h3 className="text-xl font-semibold mb-2">Request a quote</h3>
