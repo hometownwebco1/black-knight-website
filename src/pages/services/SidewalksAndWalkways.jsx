@@ -2,52 +2,69 @@ import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 
-const SidewalksAndWalkways = () => {
+export default function Sidewalks() {
   return (
-    <div className="min-h-screen bg-white py-16 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50">
       <Helmet>
-        <title>Concrete Sidewalks & Walkways | Concord NC Paths</title>
+        <title>Concrete Sidewalks & Walkways | Concord, Harrisburg, Kannapolis</title>
         <meta
           name="description"
-          content="Expert concrete sidewalks and walkways in Concord, NC. Safe, durable, and stylish paths for residential properties."
+          content="New sidewalks, replacements, and ADA-friendly walkways across the Concord NC area. Smooth finishes, correct slopes, and clean edges."
         />
-        <meta property="og:title" content="Concrete Sidewalks & Walkways | Concord NC Paths" />
-        <meta
-          property="og:description"
-          content="Walkways and sidewalks professionally installed in Concord and surrounding NC areas. Functional and beautiful concrete solutions."
-        />
+        <meta property="og:title" content="Sidewalks & Walkways | Concord NC" />
+        <meta property="og:description" content="Residential and light-commercial walkways with proper slope and control joints." />
+        <meta property="og:image" content="/images-optimized/sidewalksservicesheroimage.jpeg" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://blackknight.hometownwebco.com/services/sidewalks-and-walkways" />
+        <meta property="og:url" content="https://blackknight.hometownwebco.com/services/sidewalks" />
+        <link rel="preload" as="image" href="/images-optimized/sidewalksservicesheroimage.jpeg" />
+        <script type="application/ld+json">{`
+          { "@context": "https://schema.org", "@type": "Service", "name": "Concrete Sidewalks & Walkways",
+            "areaServed": ["Concord NC","Harrisburg NC","Kannapolis NC","Cabarrus County NC"],
+            "provider": { "@type": "LocalBusiness", "name": "Black Knight Solutions" } }
+        `}</script>
       </Helmet>
 
-      <div className="max-w-4xl mx-auto text-gray-800">
-        <h1 className="text-4xl font-bold mb-6 text-primary">Concrete Sidewalks & Walkways</h1>
-        <p className="mb-4 text-lg">
-          Create a lasting impression and improve safety with our professional concrete sidewalks and walkways. Black Knight Solutions ensures precise grading, smooth finishes, and beautiful results.
-        </p>
+      <section className="relative w-full h-[320px] md:h-[420px] lg:h-[480px]">
+        <img
+          src="/images-optimized/sidewalksservicesheroimage.jpeg"
+          alt="Concrete sidewalk installation in Concord NC"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="relative z-10 h-full flex items-end">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+            <h1 className="text-4xl md:text-5xl font-bold text-white">Sidewalks & Walkways</h1>
+            <p className="mt-3 text-white/90">Clean, safe paths with proper slope and jointing.</p>
+          </div>
+        </div>
+      </section>
 
-        <ul className="list-disc list-inside mb-6 space-y-2">
-          <li>Residential sidewalk installation</li>
-          <li>Garden and backyard walkways</li>
-          <li>ADA-compliant access paths</li>
-          <li>Decorative concrete designs and finishes</li>
-        </ul>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid lg:grid-cols-3 gap-10">
+          <div className="lg:col-span-2 space-y-6 text-gray-700">
+            <h2 className="text-2xl font-semibold">We handle</h2>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>New sidewalks and walkways</li>
+              <li>Trip-hazard replacement sections</li>
+              <li>Community path upgrades</li>
+              <li>Home entry walks and garden paths</li>
+            </ul>
 
-        <p className="mb-6">
-          We serve Concord, Harrisburg, Kannapolis, and the broader Cabarrus County area with top-tier sidewalk and path installations.
-        </p>
+            <h2 className="text-2xl font-semibold">Local coverage</h2>
+            <p>Concord, Harrisburg, Kannapolis, plus nearby neighborhoods.</p>
+          </div>
 
-        <div className="flex gap-4">
-          <Button asChild size="lg" className="bg-primary text-white hover:bg-primary/90">
-            <Link to="/contact">Request a Free Quote</Link>
-          </Button>
-          <Button asChild variant="outline">
-            <Link to="/services">Back to Services</Link>
-          </Button>
+          <aside className="lg:col-span-1">
+            <div className="bg-white rounded-lg shadow p-6">
+              <h3 className="text-xl font-semibold mb-2">Request a quote</h3>
+              <p className="text-sm text-gray-600 mb-4">Share length, width, and any curves or steps.</p>
+              <Link to="/estimates">
+                <Button className="w-full">Start Estimate</Button>
+              </Link>
+            </div>
+          </aside>
         </div>
       </div>
     </div>
   )
 }
-
-export default SidewalksAndWalkways
