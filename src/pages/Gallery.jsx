@@ -19,8 +19,8 @@ const Gallery = () => {
   const openModal = (project) => setSelectedImage(project)
   const closeModal = () => setSelectedImage(null)
 
-  // ✅ Use the same prefixed path that works on Blog
-  const HERO = '/black-knight-website/public/images-optimized/galleryhero.jpeg'
+  // ⬇️ Use the full absolute URL to bypass any nested deploy path / SPA rewrites
+  const HERO = 'https://blackknight.hometownwebco.com/black-knight-website/public/images-optimized/galleryhero.jpeg'
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -46,7 +46,7 @@ const Gallery = () => {
           loading="eager"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
-        <div className="relative z-10 h-full flex items-end">
+        <div className="relative z-10 h-full flex items=end">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
             <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow">Our Work Gallery</h1>
             <p className="mt-3 text-white/90 max-w-2xl">
@@ -125,3 +125,4 @@ const Gallery = () => {
 }
 
 export default Gallery
+
