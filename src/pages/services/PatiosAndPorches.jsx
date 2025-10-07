@@ -1,9 +1,22 @@
 import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
+import { useMemo, useState } from 'react'
 
 export default function PatiosAndPorches() {
-  const HERO = '/images/patioservicepagehero.jpeg'
+  // Robust public-path handling for CRA, Vite, and non-root deploys:
+  const base =
+    (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.BASE_URL) ||
+    (typeof process !== 'undefined' && process.env && process.env.PUBLIC_URL) ||
+    '/'
+
+  // Build the URL relative to the app's base (fixes gray hero when the site isn't served from "/")
+  const initialHero = useMemo(() => {
+    const cleaned = base.endsWith('/') ? base : base + '/'
+    return `${cleaned}images/patioservicepagehero.jpeg`
+  }, [base])
+
+  const [heroSrc, setHeroSrc] = useState(initialHero)
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -18,22 +31,22 @@ export default function PatiosAndPorches() {
           property="og:description"
           content="Stamped, broom, and colored patio finishes built for North Carolina weather."
         />
-        <meta property="og:image" content={`https://www.bksconcrete.com${HERO}`} />
+        <meta property="og:image" content={`https://www.bksconcrete.com/images/patioservicepagehero.jpeg`} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.bksconcrete.com/services/patios-and-porches" />
-        <link rel="preload" as="image" href={HERO} />
+        <link rel="preload" as="image" href={heroSrc} />
       </Helmet>
 
       <section className="relative w-full h-[320px] md:h-[420px] lg:h-[480px]">
-        {/* Use background-image to avoid any <img> stacking quirks */}
-        <div aria-hidden className="absolute inset-0">
-          <div
-            className="w-full h-full bg-center bg-cover"
-            style={{ backgroundImage: `url(${HERO})` }}
-          />
-          <div className="absolute inset-0 bg-black/40" />
-        </div>
-
+        <img
+          src={heroSrc}
+          alt="Concrete patio and porch installation in Concord NC"
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
+          // Fallback in case base path logic still mismatches prod:
+          onError={() => setHeroSrc('/images/patioservicepagehero.jpeg')}
+        />
+        <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 h-full flex items-end">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
             <h1 className="text-4xl md:text-5xl font-bold text-white">Concrete Patios &amp; Porches</h1>
@@ -55,13 +68,10 @@ export default function PatiosAndPorches() {
               <li>Steps, sitting walls, and grill pads</li>
             </ul>
           </div>
-
           <aside className="lg:col-span-1">
             <div className="bg-white rounded-lg shadow p-6">
               <h3 className="text-xl font-semibold mb-2">Free estimate</h3>
-              <p className="text-sm text-gray-600 mb-4">
-                Share size, finish, and any steps or borders you want.
-              </p>
+              <p className="text-sm text-gray-600 mb-4">Share size, finish, and any steps or borders you want.</p>
               <Link to="/estimates">
                 <Button className="w-full">Start Estimate</Button>
               </Link>
