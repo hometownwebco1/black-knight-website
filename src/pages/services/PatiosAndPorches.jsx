@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 
 export default function Patios() {
+  const HERO = '/images/patioservicepagehero.jpeg'
   return (
     <div className="min-h-screen bg-gray-50">
       <Helmet>
@@ -10,15 +11,14 @@ export default function Patios() {
         <meta name="description" content="Custom concrete patios in Concord, Harrisburg, and Kannapolis. Stamped, broom, and colored finishes with proper drainage and joints." />
         <meta property="og:title" content="Concrete Patios | Concord NC" />
         <meta property="og:description" content="Stamped, broom, and colored patio finishes built for North Carolina weather." />
-        {/* ✅ prefix */}
-        <meta property="og:image" content="/black-knight-website/public/images-optimized/servicepagehero.jpeg" />
+        <meta property="og:image" content={HERO} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://blackknight.hometownwebco.com/services/patios" />
-        <link rel="preload" as="image" href="/black-knight-website/public/images-optimized/servicepagehero.jpeg" />
+        <meta property="og:url" content="https://www.bksconcrete.com/services/patios" />
+        <link rel="preload" as="image" href={HERO} />
       </Helmet>
 
       <section className="relative w-full h-[320px] md:h-[420px] lg:h-[480px]">
-        <img src="/black-knight-website/public/images-optimized/servicepagehero.jpeg" alt="Concrete patio installation in Concord NC" className="absolute inset-0 w-full h-full object-cover" />
+        <img src={HERO} alt="Concrete patio installation in Concord NC" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 h-full flex items-end">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
