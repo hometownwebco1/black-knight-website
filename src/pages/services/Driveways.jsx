@@ -16,10 +16,10 @@ export default function Driveways() {
           property="og:description"
           content="Driveway installation, extensions, and tear-out/replacement across Cabarrus County."
         />
-        {/* ✅ Correct root-relative path now that vercel.json is fixed */}
+        {/* ✅ Path exactly as it exists in /public/images-optimized */}
         <meta property="og:image" content="/images-optimized/drivewayserviceheroimage.jpeg" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://blackknight.hometownwebco.com/services/driveways" />
+        <meta property="og:url" content="https://www.bksconcrete.com/services/driveways" />
         <link rel="preload" as="image" href="/images-optimized/drivewayserviceheroimage.jpeg" />
         <script type="application/ld+json">{`
           {
@@ -32,7 +32,7 @@ export default function Driveways() {
         `}</script>
       </Helmet>
 
-      {/* HERO SECTION */}
+      {/* HERO */}
       <section className="relative w-full h-[320px] md:h-[420px] lg:h-[480px]">
         <img
           src="/images-optimized/drivewayserviceheroimage.jpeg"
@@ -51,7 +51,7 @@ export default function Driveways() {
         </div>
       </section>
 
-      {/* MAIN CONTENT */}
+      {/* CONTENT */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid lg:grid-cols-3 gap-10">
           <div className="lg:col-span-2 space-y-6 text-gray-700">
