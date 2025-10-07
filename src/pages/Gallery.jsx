@@ -4,6 +4,15 @@ import { X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Link } from 'react-router-dom'
 
+function withFallback(primary, fallback) {
+  return (e) => {
+    const img = e.currentTarget
+    if (img.dataset.fallbackApplied) return
+    img.dataset.fallbackApplied = '1'
+    img.src = fallback
+  }
+}
+
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null)
 
@@ -19,29 +28,25 @@ const Gallery = () => {
   const openModal = (project) => setSelectedImage(project)
   const closeModal = () => setSelectedImage(null)
 
+  const primary = '/images-optimized/galleryhero.jpeg'
+  const fallback = '/black-knight-website/public/images-optimized/galleryhero.jpeg'
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Helmet>
         <title>Concrete Project Gallery | Black Knight Solutions | Concord NC</title>
         <meta name="description" content="Browse real project photos from Black Knight Solutions in Concord, NC including driveways, patios, walkways, foundations, and commercial concrete pours." />
         <meta property="og:title" content="Gallery of Completed Concrete Projects | Concord NC" />
-        {/* ✅ add deployed prefix */}
-        <meta property="og:image" content="/black-knight-website/public/images-optimized/galleryhero.jpeg" />
+        <meta property="og:image" content={primary} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://blackknight.hometownwebco.com/gallery" />
-        <link rel="preload" as="image" href="/black-knight-website/public/images-optimized/galleryhero.jpeg" />
-        <script type="application/ld+json">{`
-          { "@context": "https://schema.org", "@type": "CollectionPage",
-            "name": "Concrete Project Gallery",
-            "description": "See completed concrete driveways, patios, and foundations by Black Knight Solutions in Concord, NC.",
-            "url": "https://blackknight.hometownwebco.com/gallery" }
-        `}</script>
+        <link rel="preload" as="image" href={primary} />
       </Helmet>
 
-      {/* HERO */}
       <section className="relative w-full h-[320px] md:h-[420px] lg:h-[480px]">
         <img
-          src="/black-knight-website/public/images-optimized/galleryhero.jpeg"
+          src={primary}
+          onError={withFallback(primary, fallback)}
           alt="Black Knight Solutions concrete work showcase"
           className="absolute inset-0 w-full h-full object-cover"
           loading="eager"
@@ -55,7 +60,6 @@ const Gallery = () => {
         </div>
       </section>
 
-      {/* Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
