@@ -3,13 +3,30 @@ import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { posts } from '@/data/posts'
 
+function withFallback(primary, fallback) {
+  return (e) => {
+    const img = e.currentTarget
+    if (img.dataset.fallbackApplied) return
+    img.dataset.fallbackApplied = '1'
+    img.src = fallback
+  }
+}
+
 export default function Blog() {
   const sorted = [...posts].sort((a, b) => new Date(b.date) - new Date(a.date))
   const itemList = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    itemListElement: sorted.map((p, i) => ({ '@type': 'ListItem', position: i + 1, url: `https://blackknight.hometownwebco.com/blog/${p.slug}`, name: p.title }))
+    itemListElement: sorted.map((p, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `https://blackknight.hometownwebco.com/blog/${p.slug}`,
+      name: p.title
+    })),
   }
+
+  const primary = '/images-optimized/blogpagehero.jpeg'
+  const fallback = '/black-knight-website/public/images-optimized/blogpagehero.jpeg'
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -18,17 +35,18 @@ export default function Blog() {
         <meta name="description" content="Practical concrete maintenance tips, design ideas, and local Concord NC project spotlights from Black Knight Solutions." />
         <meta property="og:title" content="Blog | Black Knight Solutions, Concord NC" />
         <meta property="og:description" content="Concrete tips, design ideas, and Concord-area project spotlights." />
-        {/* ✅ add deployed prefix */}
-        <meta property="og:image" content="/black-knight-website/public/images-optimized/blogpagehero.jpeg" />
+        {/* og:image can’t “fallback”, so keep the primary */}
+        <meta property="og:image" content={primary} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://blackknight.hometownwebco.com/blog" />
-        <link rel="preload" as="image" href="/black-knight-website/public/images-optimized/blogpagehero.jpeg" />
+        <link rel="preload" as="image" href={primary} />
         <script type="application/ld+json">{JSON.stringify(itemList)}</script>
       </Helmet>
 
       <section className="relative w-full h-[320px] md:h-[420px] lg:h-[480px]">
         <img
-          src="/black-knight-website/public/images-optimized/blogpagehero.jpeg"
+          src={primary}
+          onError={withFallback(primary, fallback)}
           alt="Black Knight Solutions blog cover showing finished concrete work"
           className="absolute inset-0 w-full h-full object-cover"
           loading="eager"
@@ -46,7 +64,6 @@ export default function Blog() {
         <p className="text-gray-700 mb-8">
           Explore our latest posts below. Have a question you want answered on the blog? <Link to="/contact" className="underline">Contact us</Link>.
         </p>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {sorted.map((post) => (
             <article key={post.slug} className="bg-white rounded-lg shadow hover:shadow-lg transition-shadow">
