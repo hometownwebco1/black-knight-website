@@ -3,11 +3,12 @@ import { Helmet } from 'react-helmet'
 import { X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Link } from 'react-router-dom'
+import { assetUrl } from '@/utils/assetUrl'
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null)
 
-  // Thumbnails (these already live in /public/images)
+  // Thumbnails (live under /public/images) — leave as-is
   const projects = [
     { id: 1, image: '/images/drivewaypouronnewbuild1.jpeg', title: 'New Driveway Installation', description: 'Brand new driveway on a new build home.' },
     { id: 2, image: '/images/pationexttoscreenporch.jpeg', title: 'Residential Patio', description: 'New residential patio.' },
@@ -20,7 +21,8 @@ const Gallery = () => {
   const openModal = (project) => setSelectedImage(project)
   const closeModal = () => setSelectedImage(null)
 
-  const HERO = '/images-optimized/galleryhero.jpeg' // lives in /public/images-optimized/
+  const HERO_REL = '/images-optimized/galleryhero.jpeg'
+  const HERO = assetUrl(HERO_REL)
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -31,6 +33,7 @@ const Gallery = () => {
           content="Browse real project photos from Black Knight Solutions in Concord, NC including driveways, patios, walkways, foundations, and commercial concrete pours."
         />
         <meta property="og:title" content="Gallery of Completed Concrete Projects | Concord NC" />
+        {/* For OG, safest is a full URL. If you want, hardcode the domain + assetUrl(HERO_REL). */}
         <meta property="og:image" content={HERO} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://blackknight.hometownwebco.com/gallery" />
@@ -89,7 +92,7 @@ const Gallery = () => {
 
         <div className="text-center mt-16">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Ready to Start Your Project?</h2>
-        <p className="text-lg text-gray-600 mb-8">
+          <p className="text-lg text-gray-600 mb-8">
             Contact us today for a free estimate on your concrete project.
           </p>
           <Link to="/estimates">
@@ -131,6 +134,3 @@ const Gallery = () => {
 }
 
 export default Gallery
-
-
-
