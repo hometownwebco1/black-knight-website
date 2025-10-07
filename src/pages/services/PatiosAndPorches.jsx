@@ -1,22 +1,10 @@
 import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
-import { useMemo, useState } from 'react'
 
 export default function PatiosAndPorches() {
-  // Robust public-path handling for CRA, Vite, and non-root deploys:
-  const base =
-    (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.BASE_URL) ||
-    (typeof process !== 'undefined' && process.env && process.env.PUBLIC_URL) ||
-    '/'
-
-  // Build the URL relative to the app's base (fixes gray hero when the site isn't served from "/")
-  const initialHero = useMemo(() => {
-    const cleaned = base.endsWith('/') ? base : base + '/'
-    return `${cleaned}images/patioservicepagehero.jpeg`
-  }, [base])
-
-  const [heroSrc, setHeroSrc] = useState(initialHero)
+  // Note the encoded space (%20) to match the actual filename on disk:
+  const HERO = '/images/patioservicepage%20hero.jpeg'
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -31,20 +19,18 @@ export default function PatiosAndPorches() {
           property="og:description"
           content="Stamped, broom, and colored patio finishes built for North Carolina weather."
         />
-        <meta property="og:image" content={`https://www.bksconcrete.com/images/patioservicepagehero.jpeg`} />
+        <meta property="og:image" content={`https://www.bksconcrete.com${HERO}`} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.bksconcrete.com/services/patios-and-porches" />
-        <link rel="preload" as="image" href={heroSrc} />
+        <link rel="preload" as="image" href={HERO} />
       </Helmet>
 
       <section className="relative w-full h-[320px] md:h-[420px] lg:h-[480px]">
         <img
-          src={heroSrc}
+          src={HERO}
           alt="Concrete patio and porch installation in Concord NC"
           className="absolute inset-0 w-full h-full object-cover"
           loading="eager"
-          // Fallback in case base path logic still mismatches prod:
-          onError={() => setHeroSrc('/images/patioservicepagehero.jpeg')}
         />
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 h-full flex items-end">
