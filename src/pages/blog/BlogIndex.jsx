@@ -1,8 +1,24 @@
 import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
+import { posts } from '@/data/posts'
 
 export default function Blog() {
+  // Sort newest first (optional)
+  const sorted = [...posts].sort((a, b) => new Date(b.date) - new Date(a.date))
+
+  // Build JSON-LD ItemList for SEO
+  const itemList = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: sorted.map((p, idx) => ({
+      '@type': 'ListItem',
+      position: idx + 1,
+      url: `https://blackknight.hometownwebco.com/blog/${p.slug}`,
+      name: p.title,
+    })),
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Helmet>
@@ -17,21 +33,10 @@ export default function Blog() {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://blackknight.hometownwebco.com/blog" />
         <link rel="preload" as="image" href="/images-optimized/blogpagehero.jpeg" />
-        <script type="application/ld+json">{`
-          {
-            "@context": "https://schema.org",
-            "@type": "Blog",
-            "name": "Black Knight Solutions Blog",
-            "url": "https://blackknight.hometownwebco.com/blog",
-            "publisher": {
-              "@type": "Organization",
-              "name": "Black Knight Solutions"
-            }
-          }
-        `}</script>
+        <script type="application/ld+json">{JSON.stringify(itemList)}</script>
       </Helmet>
 
-      {/* Hero */}
+      {/* Hero (unchanged) */}
       <section className="relative w-full h-[320px] md:h-[420px] lg:h-[480px]">
         <img
           src="/images-optimized/blogpagehero.jpeg"
@@ -48,12 +53,33 @@ export default function Blog() {
         </div>
       </section>
 
-      {/* Body placeholder – keeps existing blog list mechanism intact */}
+      {/* Blog list */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <p className="text-gray-700">
+        <p className="text-gray-700 mb-8">
           Explore our latest posts below. Have a question you want answered on the blog?{' '}
           <Link to="/contact" className="underline">Contact us</Link>.
         </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {sorted.map((post) => (
+            <article key={post.slug} className="bg-white rounded-lg shadow hover:shadow-lg transition-shadow">
+              <Link to={`/blog/${post.slug}`} className="block">
+                {/* Optional thumbnail extraction:
+                   If you later add `image` to posts, place an <img> here. */}
+                <div className="p-6">
+                  <h2 className="text-xl font-semibold text-gray-900">{post.title}</h2>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    {new Date(post.date).toLocaleDateString()}
+                  </p>
+                  <p className="text-gray-700 mt-3">
+                    {post.excerpt || 'Read more…'}
+                  </p>
+                  <Button className="mt-4">Read Article</Button>
+                </div>
+              </Link>
+            </article>
+          ))}
+        </div>
       </div>
     </div>
   )
