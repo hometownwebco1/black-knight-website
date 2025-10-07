@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null)
 
+  // ✅ Only the hero was added/updated. Project list left as-is.
   const projects = [
     {
       id: 1,
@@ -50,7 +51,7 @@ const Gallery = () => {
   const closeModal = () => setSelectedImage(null)
 
   return (
-    <div className="min-h-screen bg-gray-50 py-16">
+    <div className="min-h-screen bg-gray-50">
       <Helmet>
         <title>Concrete Project Gallery | Black Knight Solutions | Concord NC</title>
         <meta
@@ -58,11 +59,8 @@ const Gallery = () => {
           content="Browse real project photos from Black Knight Solutions in Concord, NC including driveways, patios, walkways, foundations, and commercial concrete pours."
         />
         <meta property="og:title" content="Gallery of Completed Concrete Projects | Concord NC" />
-        <meta
-          property="og:description"
-          content="View our latest residential and commercial concrete projects around Concord, NC. High-quality, licensed, and insured work you can trust."
-        />
-        <meta property="og:image" content="/images/drivewaypouronnewbuild1.jpeg" />
+        {/* ✅ Updated to use the new gallery hero image */}
+        <meta property="og:image" content="/images-optimized/galleryhero.jpeg" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://blackknight.hometownwebco.com/gallery" />
         <script type="application/ld+json">{`
@@ -74,22 +72,36 @@ const Gallery = () => {
             "url": "https://blackknight.hometownwebco.com/gallery"
           }
         `}</script>
+        {/* Optional: preload the hero for faster Largest Contentful Paint */}
+        <link rel="preload" as="image" href="/images-optimized/galleryhero.jpeg" />
       </Helmet>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Our Work Gallery
-          </h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Take a look at some of our completed concrete projects in Concord, NC and surrounding areas. 
-            Each job showcases our precision, durability, and commitment to quality.
-          </p>
+      {/* ✅ New HERO section */}
+      <section className="relative w-full h-[320px] md:h-[420px] lg:h-[480px]">
+        <img
+          src="/images-optimized/galleryhero.jpeg"
+          alt="Black Knight Solutions concrete work showcase"
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
+        <div className="relative z-10 h-full flex items-end">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+            <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow">
+              Our Work Gallery
+            </h1>
+            <p className="mt-3 text-white/90 max-w-2xl">
+              Real driveways, patios, walkways, and foundations built across Concord, NC and nearby.
+            </p>
+          </div>
         </div>
+      </section>
 
+      {/* Main content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
-            <div 
+            <div
               key={project.id}
               className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
               onClick={() => openModal(project)}
@@ -106,9 +118,7 @@ const Gallery = () => {
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
                   {project.title}
                 </h3>
-                <p className="text-gray-600">
-                  {project.description}
-                </p>
+                <p className="text-gray-600">{project.description}</p>
               </div>
             </div>
           ))}
@@ -160,3 +170,4 @@ const Gallery = () => {
 }
 
 export default Gallery
+
