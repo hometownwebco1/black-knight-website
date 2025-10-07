@@ -4,18 +4,6 @@ import { X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Link } from 'react-router-dom'
 
-// Robust fallback: cycles through multiple possible deployed paths
-function multiFallback(candidates) {
-  return (e) => {
-    const img = e.currentTarget
-    const idx = Number(img.dataset.srcIdx || 0)
-    if (idx >= candidates.length - 1) return // nothing else to try
-    const nextIdx = idx + 1
-    img.dataset.srcIdx = String(nextIdx)
-    img.src = candidates[nextIdx]
-  }
-}
-
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null)
 
@@ -31,12 +19,8 @@ const Gallery = () => {
   const openModal = (project) => setSelectedImage(project)
   const closeModal = () => setSelectedImage(null)
 
-  // Try root first, then common nested deploy prefixes
-  const heroCandidates = [
-    '/images-optimized/galleryhero.jpeg',
-    '/black-knight-website/public/images-optimized/galleryhero.jpeg',
-    '/black-knight-website/images-optimized/galleryhero.jpeg'
-  ]
+  // ✅ Use the same prefixed path that works on Blog
+  const HERO = '/black-knight-website/public/images-optimized/galleryhero.jpeg'
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -47,19 +31,16 @@ const Gallery = () => {
           content="Browse real project photos from Black Knight Solutions in Concord, NC including driveways, patios, walkways, foundations, and commercial concrete pours."
         />
         <meta property="og:title" content="Gallery of Completed Concrete Projects | Concord NC" />
-        {/* og:image can't auto-fallback; keep the primary for now */}
-        <meta property="og:image" content={heroCandidates[0]} />
+        <meta property="og:image" content={HERO} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://blackknight.hometownwebco.com/gallery" />
-        <link rel="preload" as="image" href={heroCandidates[0]} />
+        <link rel="preload" as="image" href={HERO} />
       </Helmet>
 
       {/* HERO */}
       <section className="relative w-full h-[320px] md:h-[420px] lg:h-[480px]">
         <img
-          src={heroCandidates[0]}
-          data-src-idx="0"
-          onError={multiFallback(heroCandidates)}
+          src={HERO}
           alt="Black Knight Solutions concrete work showcase"
           className="absolute inset-0 w-full h-full object-cover"
           loading="eager"
