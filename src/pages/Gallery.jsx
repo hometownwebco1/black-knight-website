@@ -2,8 +2,8 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { assetUrl } from '@/utils/assetUrl';
 
-// 👇 Using the new image
-const HERO = assetUrl('/images/galleryhero2.jpeg');
+// Use the new file you added
+const HERO = assetUrl('/images/galleryhero4.jpeg');
 const SITE = 'https://www.bksconcrete.com';
 
 export default function Gallery() {
@@ -17,7 +17,6 @@ export default function Gallery() {
         />
         <link rel="canonical" href={`${SITE}/gallery`} />
 
-        {/* Updated to preload the new hero */}
         <link rel="preload" as="image" href={HERO} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${SITE}/gallery`} />
@@ -48,9 +47,8 @@ export default function Gallery() {
         </div>
       </section>
 
-      {/* Gallery content */}
       <main className="mx-auto max-w-6xl px-6 py-12">
-        {/* Keep your existing GalleryCarousel or grid implementation here */}
+        {/* Existing GalleryCarousel/grid stays as-is */}
       </main>
     </div>
   );
