@@ -2,7 +2,8 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { assetUrl } from '@/utils/assetUrl';
 
-const HERO = assetUrl('/images/galleryhero.jpeg');
+// 👇 Using the new image
+const HERO = assetUrl('/images/galleryhero2.jpeg');
 const SITE = 'https://www.bksconcrete.com';
 
 export default function Gallery() {
@@ -16,6 +17,7 @@ export default function Gallery() {
         />
         <link rel="canonical" href={`${SITE}/gallery`} />
 
+        {/* Updated to preload the new hero */}
         <link rel="preload" as="image" href={HERO} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${SITE}/gallery`} />
@@ -33,20 +35,22 @@ export default function Gallery() {
       <section className="relative h-[42vh] min-h-[320px] w-full overflow-hidden">
         <img
           src={HERO}
-          alt="BKS Concrete gallery hero"
+          alt="Concrete gallery hero"
           className="absolute inset-0 h-full w-full object-cover"
           loading="eager"
           fetchpriority="high"
         />
         <div className="absolute inset-0 bg-black/40" aria-hidden />
         <div className="relative z-10 mx-auto flex h-full max-w-6xl items-end px-6 pb-10">
-          <h1 className="text-3xl font-semibold text-white md:text-5xl">Project Gallery</h1>
+          <h1 className="text-3xl font-semibold text-white md:text-5xl">
+            Project Gallery
+          </h1>
         </div>
       </section>
 
-      {/* Your existing gallery carousel / grid renders here */}
+      {/* Gallery content */}
       <main className="mx-auto max-w-6xl px-6 py-12">
-        {/* Keep current GalleryCarousel or grid implementation here unchanged. */}
+        {/* Keep your existing GalleryCarousel or grid implementation here */}
       </main>
     </div>
   );
