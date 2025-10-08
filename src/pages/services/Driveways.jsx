@@ -18,7 +18,7 @@ export default function Driveways() {
       </Helmet>
 
       <section className="relative w-full h-[320px] md:h-[420px] lg:h-[480px]">
-        <img src={HERO} alt="Freshly poured concrete driveway in Concord NC" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
+        <img src={HERO} alt="Freshly poured concrete driveway in Concord NC" className="absolute inset-0 w-full h-full object-cover" loading="eager" fetchpriority="high" />
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 h-full flex items-end">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">

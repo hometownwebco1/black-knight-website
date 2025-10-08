@@ -36,7 +36,7 @@ export default function ConcreteRepair() {
           src={HERO}
           alt="Concrete repair project by BKS Concrete"
           className="absolute inset-0 h-full w-full object-cover"
-          loading="eager"
+          loading="eager" fetchpriority="high"
           fetchpriority="high"
         />
         <div className="absolute inset-0 bg-black/40" aria-hidden />

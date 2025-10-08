@@ -29,7 +29,7 @@ export default function PatiosAndPorches() {
           src={HERO}
           alt="Concrete patios and porches in Concord NC"
           className="absolute inset-0 w-full h-full object-cover"
-          loading="eager"
+          loading="eager" fetchpriority="high"
         />
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 h-full flex items-end">
