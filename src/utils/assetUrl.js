@@ -1,18 +1,13 @@
-// src/utils/assetUrl.js
-// One source of truth for asset paths.
-// Set ASSET_PREFIX in Vercel → Project → Settings → Environment Variables.
-// Example values:
-//   ""                               ← normal (root) deploy
-//   "/black-knight-website/public"   ← nested deploy like your current zip
-export const ASSET_PREFIX =
-  (typeof process !== 'undefined' && process.env?.ASSET_PREFIX) ||
-  (typeof import.meta !== 'undefined' && import.meta.env?.VITE_ASSET_PREFIX) ||
-  '';
-
-export function assetUrl(path) {
-  // path like "/images-optimized/galleryhero.jpeg"
-  // ensure single slash when concatenated
-  if (!path.startsWith('/')) path = '/' + path;
-  if (!ASSET_PREFIX) return path;
-  return `${ASSET_PREFIX}${path}`;
+// src/utils/assetUrl.ts
+// Resolves asset paths correctly in prod/dev and under subpaths if you ever use one.
+export function assetUrl(path: string) {
+  if (!path.startsWith('/')) path = `/${path}`;
+  // Vite first, then Node env fallback, default '/'
+  const prefix =
+    (typeof import.meta !== 'undefined' &&
+      (import.meta as any).env &&
+      (import.meta as any).env.VITE_ASSET_PREFIX) ||
+    process.env.VITE_ASSET_PREFIX ||
+    '';
+  return `${prefix}${path}` || path;
 }
