@@ -3,10 +3,10 @@ import { Suspense, lazy } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
-import ScrollToTop from './components/ScrollToTop'; // ✅ keep
+import ScrollToTop from './components/ScrollToTop';
 import './App.css';
 
-// Lazy-loaded core pages
+// Core pages
 const Home = lazy(() => import('./pages/Home'));
 const Gallery = lazy(() => import('./pages/Gallery'));
 const Services = lazy(() => import('./pages/Services'));
@@ -17,24 +17,21 @@ const BlogPost = lazy(() => import('./pages/blog/Post'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 const Estimates = lazy(() => import('./pages/Estimates'));
 
-// Lazy-loaded service subpages
+// Service subpages
 const Driveways = lazy(() => import('./pages/services/Driveways'));
-// ❌ removed: ./pages/services/Patios (file does not exist)
-const PatiosAndPorches = lazy(() => import('./pages/services/PatiosAndPorches'));
-const Sidewalks = lazy(() => import('./pages/services/Sidewalks'));
 const SidewalksAndWalkways = lazy(() => import('./pages/services/SidewalksAndWalkways'));
 const GarageFloors = lazy(() => import('./pages/services/GarageFloors'));
 const Foundations = lazy(() => import('./pages/services/Foundations'));
 const RetainingWalls = lazy(() => import('./pages/services/RetainingWalls'));
 const ConcreteRepair = lazy(() => import('./pages/services/ConcreteRepair'));
 const ProtectiveCoatings = lazy(() => import('./pages/services/ProtectiveCoatings'));
+const PatiosAndPorches = lazy(() => import('./pages/services/PatiosAndPorches'));
 
 function App() {
   return (
     <HelmetProvider>
       <Router>
         <ScrollToTop />
-
         <Helmet>
           {/* Google Analytics */}
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-V81D4JK8E6"></script>
@@ -46,7 +43,6 @@ function App() {
               gtag('config', 'G-V81D4JK8E6');
             `}
           </script>
-          {/* Favicon */}
           <link rel="icon" href="/favicon.ico" />
         </Helmet>
 
@@ -55,7 +51,7 @@ function App() {
           <main className="flex-grow">
             <Suspense fallback={<div className="text-center py-10">Loading...</div>}>
               <Routes>
-                {/* Core Pages */}
+                {/* Core pages */}
                 <Route path="/" element={<Home />} />
                 <Route path="/gallery" element={<Gallery />} />
                 <Route path="/services" element={<Services />} />
@@ -65,23 +61,22 @@ function App() {
                 <Route path="/blog/:slug" element={<BlogPost />} />
                 <Route path="/estimates" element={<Estimates />} />
 
-                {/* Service Subpages */}
+                {/* Services */}
                 <Route path="/services/driveways" element={<Driveways />} />
-                {/* 🔁 Redirect legacy /services/patios → /services/patios-and-porches */}
-                <Route
-                  path="/services/patios"
-                  element={<Navigate to="/services/patios-and-porches" replace />}
-                />
-                <Route path="/services/patios-and-porches" element={<PatiosAndPorches />} />
-                <Route path="/services/sidewalks" element={<Sidewalks />} />
+
+                {/* Redirect legacy paths to existing ones */}
+                <Route path="/services/sidewalks" element={<Navigate to="/services/sidewalks-and-walkways" replace />} />
+                <Route path="/services/patios" element={<Navigate to="/services/patios-and-porches" replace />} />
+
                 <Route path="/services/sidewalks-and-walkways" element={<SidewalksAndWalkways />} />
                 <Route path="/services/garagefloors" element={<GarageFloors />} />
                 <Route path="/services/foundations" element={<Foundations />} />
                 <Route path="/services/retainingwalls" element={<RetainingWalls />} />
                 <Route path="/services/concrete-repair" element={<ConcreteRepair />} />
                 <Route path="/services/protective-coatings" element={<ProtectiveCoatings />} />
+                <Route path="/services/patios-and-porches" element={<PatiosAndPorches />} />
 
-                {/* 404 Fallback */}
+                {/* 404 fallback */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
