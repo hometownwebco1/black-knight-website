@@ -20,7 +20,6 @@ const Estimates = lazy(() => import('./pages/Estimates'));
 // Service subpages
 const Driveways = lazy(() => import('./pages/services/Driveways'));
 const SidewalksAndWalkways = lazy(() => import('./pages/services/SidewalksAndWalkways'));
-const GarageFloors = lazy(() => import('./pages/services/GarageFloors'));
 const Foundations = lazy(() => import('./pages/services/Foundations'));
 const RetainingWalls = lazy(() => import('./pages/services/RetainingWalls'));
 const ConcreteRepair = lazy(() => import('./pages/services/ConcreteRepair'));
@@ -63,13 +62,17 @@ function App() {
 
                 {/* Services */}
                 <Route path="/services/driveways" element={<Driveways />} />
-
                 {/* Redirect legacy paths to existing ones */}
-                <Route path="/services/sidewalks" element={<Navigate to="/services/sidewalks-and-walkways" replace />} />
-                <Route path="/services/patios" element={<Navigate to="/services/patios-and-porches" replace />} />
+                <Route
+                  path="/services/sidewalks"
+                  element={<Navigate to="/services/sidewalks-and-walkways" replace />}
+                />
+                <Route
+                  path="/services/patios"
+                  element={<Navigate to="/services/patios-and-porches" replace />}
+                />
 
                 <Route path="/services/sidewalks-and-walkways" element={<SidewalksAndWalkways />} />
-                <Route path="/services/garagefloors" element={<GarageFloors />} />
                 <Route path="/services/foundations" element={<Foundations />} />
                 <Route path="/services/retainingwalls" element={<RetainingWalls />} />
                 <Route path="/services/concrete-repair" element={<ConcreteRepair />} />
