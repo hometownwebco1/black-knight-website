@@ -1,39 +1,39 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { Suspense, lazy } from 'react'
-import { Helmet, HelmetProvider } from 'react-helmet-async'
-import Navigation from './components/Navigation'
-import Footer from './components/Footer'
-import ScrollToTop from './components/ScrollToTop' // ✅ ADDED
-import './App.css'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Suspense, lazy } from 'react';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+import Navigation from './components/Navigation';
+import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop'; // ✅ keep
+import './App.css';
 
 // Lazy-loaded core pages
-const Home = lazy(() => import('./pages/Home'))
-const Gallery = lazy(() => import('./pages/Gallery'))
-const Services = lazy(() => import('./pages/Services'))
-const Contact = lazy(() => import('./pages/Contact'))
-const FAQ = lazy(() => import('./pages/FAQ'))
-const BlogIndex = lazy(() => import('./pages/blog/BlogIndex'))
-const BlogPost = lazy(() => import('./pages/blog/Post'))
-const NotFound = lazy(() => import('./pages/NotFound'))
-const Estimates = lazy(() => import('./pages/Estimates'))
+const Home = lazy(() => import('./pages/Home'));
+const Gallery = lazy(() => import('./pages/Gallery'));
+const Services = lazy(() => import('./pages/Services'));
+const Contact = lazy(() => import('./pages/Contact'));
+const FAQ = lazy(() => import('./pages/FAQ'));
+const BlogIndex = lazy(() => import('./pages/blog/BlogIndex'));
+const BlogPost = lazy(() => import('./pages/blog/Post'));
+const NotFound = lazy(() => import('./pages/NotFound'));
+const Estimates = lazy(() => import('./pages/Estimates'));
 
 // Lazy-loaded service subpages
-const Driveways = lazy(() => import('./pages/services/Driveways'))
-const Patios = lazy(() => import('./pages/services/Patios'))
-const PatiosAndPorches = lazy(() => import('./pages/services/PatiosAndPorches'))
-const Sidewalks = lazy(() => import('./pages/services/Sidewalks'))
-const SidewalksAndWalkways = lazy(() => import('./pages/services/SidewalksAndWalkways'))
-const GarageFloors = lazy(() => import('./pages/services/GarageFloors'))
-const Foundations = lazy(() => import('./pages/services/Foundations'))
-const RetainingWalls = lazy(() => import('./pages/services/RetainingWalls'))
-const ConcreteRepair = lazy(() => import('./pages/services/ConcreteRepair'))
-const ProtectiveCoatings = lazy(() => import('./pages/services/ProtectiveCoatings'))
+const Driveways = lazy(() => import('./pages/services/Driveways'));
+// ❌ removed: ./pages/services/Patios (file does not exist)
+const PatiosAndPorches = lazy(() => import('./pages/services/PatiosAndPorches'));
+const Sidewalks = lazy(() => import('./pages/services/Sidewalks'));
+const SidewalksAndWalkways = lazy(() => import('./pages/services/SidewalksAndWalkways'));
+const GarageFloors = lazy(() => import('./pages/services/GarageFloors'));
+const Foundations = lazy(() => import('./pages/services/Foundations'));
+const RetainingWalls = lazy(() => import('./pages/services/RetainingWalls'));
+const ConcreteRepair = lazy(() => import('./pages/services/ConcreteRepair'));
+const ProtectiveCoatings = lazy(() => import('./pages/services/ProtectiveCoatings'));
 
 function App() {
   return (
     <HelmetProvider>
       <Router>
-        <ScrollToTop /> {/* ✅ Auto-scroll on route change */}
+        <ScrollToTop />
 
         <Helmet>
           {/* Google Analytics */}
@@ -67,7 +67,11 @@ function App() {
 
                 {/* Service Subpages */}
                 <Route path="/services/driveways" element={<Driveways />} />
-                <Route path="/services/patios" element={<Patios />} />
+                {/* 🔁 Redirect legacy /services/patios → /services/patios-and-porches */}
+                <Route
+                  path="/services/patios"
+                  element={<Navigate to="/services/patios-and-porches" replace />}
+                />
                 <Route path="/services/patios-and-porches" element={<PatiosAndPorches />} />
                 <Route path="/services/sidewalks" element={<Sidewalks />} />
                 <Route path="/services/sidewalks-and-walkways" element={<SidewalksAndWalkways />} />
@@ -86,7 +90,7 @@ function App() {
         </div>
       </Router>
     </HelmetProvider>
-  )
+  );
 }
 
-export default App
+export default App;
