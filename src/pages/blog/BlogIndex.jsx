@@ -14,7 +14,7 @@ export default function Blog() {
   return (
     <div className="min-h-screen bg-white">
       <Helmet>
-        <title>Concrete Tips & Guides | BKS Concrete Blog</title>
+        <title>Concrete Tips & Guides | Black Knight Solutions Blog</title>
         <meta
           name="description"
           content="Concrete how-tos, driveway maintenance, patio ideas, and practical repair advice from BKS Concrete."
