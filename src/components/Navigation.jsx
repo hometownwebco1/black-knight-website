@@ -17,20 +17,15 @@ const Navigation = () => {
     { name: 'Contact', path: '/contact' }
   ]
 
-  const isActive = (path: string) => location.pathname === path
+  const isActive = (path) => location.pathname === path
 
   return (
     <nav className="bg-white shadow-lg sticky top-0 z-50" aria-label="Main navigation">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <img
-              src={logo}
-              alt="Black Knight Solutions"
-              className="h-10 w-auto"
-            />
+            <img src={logo} alt="Black Knight Solutions" className="h-10 w-auto" />
             <span className="text-xl font-bold text-gray-900">
               Black Knight Solutions
             </span>
