@@ -18,7 +18,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Services - Two Columns, Fixed Slugs */}
+        {/* Services */}
         <div>
           <h2 className="text-base font-semibold text-gray-900 mb-4">Our Services</h2>
           <ul className="grid grid-cols-2 gap-y-2 gap-x-4">
@@ -33,15 +33,34 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Contact & Info */}
+        {/* Contact & Social */}
         <div>
           <h2 className="text-base font-semibold text-gray-900 mb-4">Contact</h2>
-          <ul className="space-y-2 text-muted-foreground">
+          <ul className="space-y-2">
             <li><span className="text-gray-700">Phone:</span> (704) 787-4975</li>
             <li><span className="text-gray-700">Hours:</span> Mon–Fri: 7AM–6PM</li>
             <li><span className="text-gray-700">Area:</span> Concord, NC & Surrounding</li>
-            <li><span className="text-gray-700">Facebook:</span>{' '}
-              <a href="https://www.facebook.com/profile.php?id=61578313660385" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+
+            <li>
+              <span className="text-gray-700">Facebook:</span>{' '}
+              <a
+                href="https://www.facebook.com/people/Black-Knight-Solutions-INC/61576128014665/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:underline"
+              >
+                Follow Us
+              </a>
+            </li>
+
+            <li>
+              <span className="text-gray-700">Instagram:</span>{' '}
+              <a
+                href="https://www.instagram.com/bks_crete/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-pink-600 hover:underline"
+              >
                 Follow Us
               </a>
             </li>
@@ -66,4 +85,3 @@ const Footer = () => {
 }
 
 export default Footer
-
