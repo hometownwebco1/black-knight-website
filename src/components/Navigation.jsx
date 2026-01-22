@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Facebook, Instagram } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import logo from '../assets/logo.jpg'
 
@@ -12,17 +12,18 @@ const Navigation = () => {
     { name: 'Home', path: '/' },
     { name: 'Gallery', path: '/gallery' },
     { name: 'Services', path: '/services' },
-    { name: 'Estimates', path: '/estimates' }, // ✅ ADDED
+    { name: 'Estimates', path: '/estimates' },
     { name: 'Blog', path: '/blog' },
     { name: 'Contact', path: '/contact' }
   ]
 
-  const isActive = (path) => location.pathname === path
+  const isActive = (path: string) => location.pathname === path
 
   return (
     <nav className="bg-white shadow-lg sticky top-0 z-50" aria-label="Main navigation">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
+
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <img
@@ -36,7 +37,7 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
               <Link
                 key={item.name}
@@ -50,6 +51,29 @@ const Navigation = () => {
                 {item.name}
               </Link>
             ))}
+
+            {/* Social Icons */}
+            <div className="flex items-center space-x-4 pl-4 border-l">
+              <a
+                href="https://www.facebook.com/people/Black-Knight-Solutions-INC/61576128014665/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="text-gray-600 hover:text-blue-600 transition-colors"
+              >
+                <Facebook size={20} />
+              </a>
+
+              <a
+                href="https://www.instagram.com/bks_crete/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="text-gray-600 hover:text-pink-600 transition-colors"
+              >
+                <Instagram size={20} />
+              </a>
+            </div>
           </div>
 
           {/* Mobile menu button */}
@@ -71,7 +95,7 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden" id="mobile-menu">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+            <div className="px-2 pt-2 pb-4 space-y-1 bg-white border-t">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
@@ -86,6 +110,29 @@ const Navigation = () => {
                   {item.name}
                 </Link>
               ))}
+
+              {/* Mobile Social Icons */}
+              <div className="flex items-center justify-center space-x-6 pt-4 border-t">
+                <a
+                  href="https://www.facebook.com/people/Black-Knight-Solutions-INC/61576128014665/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  className="text-gray-600 hover:text-blue-600 transition-colors"
+                >
+                  <Facebook size={22} />
+                </a>
+
+                <a
+                  href="https://www.instagram.com/bks_crete/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="text-gray-600 hover:text-pink-600 transition-colors"
+                >
+                  <Instagram size={22} />
+                </a>
+              </div>
             </div>
           </div>
         )}
