@@ -2,8 +2,11 @@ import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import { Button } from '@/components/ui/button'
 import { Home, Car, Footprints, Building, Wrench, Shield } from 'lucide-react'
+import { assetUrl } from '@/utils/assetUrl'
 
-// JS version (no TypeScript types)
+// ✅ Use an image that actually exists in /public/images
+const HERO = assetUrl('/images/drivewayserviceheroimage.jpeg')
+
 const slugify = (str) =>
   str.toLowerCase().replace(/&/g, 'and').replace(/[^\w\s-]/g, '').replace(/\s+/g, '-')
 
@@ -81,12 +84,16 @@ const Services = () => {
           name="description"
           content="Explore our residential concrete services in Concord NC. Driveways, patios, sidewalks, foundations, and more from Black Knight Solutions."
         />
+        <link rel="canonical" href="https://blackknight.hometownwebco.com/services" />
+
         <meta property="og:title" content="Residential Concrete Services | Concord NC" />
         <meta
           property="og:description"
           content="From driveways to patios, foundations, and repairs — Black Knight Solutions delivers professional concrete services in Concord, NC."
         />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content={`https://blackknight.hometownwebco.com${HERO}`} />
+
         <script type="application/ld+json">{`
           {
             "@context": "https://schema.org",
@@ -98,84 +105,60 @@ const Services = () => {
               "areaServed": { "@type": "Place", "name": "Concord NC" },
               "url": "https://blackknight.hometownwebco.com/services"
             },
-            "description": "Driveways, patios, sidewalks, foundations and concrete repair services in Concord, NC."
+            "description": "Driveways, patios, sidewalks, foundations, repairs, and protective coatings in Concord, NC."
           }
         `}</script>
       </Helmet>
 
-      {/* Hero */}
-      <div className="relative w-full h-96 mb-16">
+      {/* ✅ Hero */}
+      <div className="relative w-full h-96 mb-16 bg-gray-200">
         <img
-          src="/images/servicepagehero.jpeg"
-          alt="Black Knight Solutions concrete services hero"
+          src={HERO}
+          alt="Concrete services in Concord NC by Black Knight Solutions"
           className="w-full h-full object-cover"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow-lg">Our Services</h1>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Black Knight Solutions offers comprehensive residential concrete services in Concord, NC.
-            From new installations to repairs, we deliver quality workmanship on every project.
-          </p>
-        </div>
+      <div className="max-w-7xl mx-auto px-6 pb-16">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((service) => {
+            const slug = slugify(service.title)
+            return (
+              <div
+                key={service.title}
+                className="rounded-2xl border border-[var(--border)] p-6 shadow-sm hover:shadow-md transition bg-white"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="rounded-xl border border-[var(--border)] p-3">{service.icon}</div>
+                  <div>
+                    <h2 className="text-xl font-semibold">{service.title}</h2>
+                    <p className="text-sm text-muted-foreground mt-1">{service.description}</p>
+                  </div>
+                </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {services.map((service, index) => (
-            <Link to={`/services/${slugify(service.title)}`} key={index}>
-              <div className="bg-gray-50 rounded-lg p-8 hover:shadow-lg transition-shadow duration-300 h-full">
-                <div className="text-primary mb-4">{service.icon}</div>
-                <h3 className="text-2xl font-semibold text-gray-900 mb-4">{service.title}</h3>
-                <p className="text-gray-600 mb-6">{service.description}</p>
-                <ul className="space-y-2">
-                  {service.features.map((feature, i) => (
-                    <li key={i} className="flex items-start">
-                      <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0" />
-                      <span className="text-gray-700 text-sm">{feature}</span>
+                <ul className="mt-4 space-y-2 text-sm">
+                  {service.features.map((f) => (
+                    <li key={f} className="flex gap-2">
+                      <span className="mt-[2px] h-2 w-2 rounded-full bg-black/70" />
+                      <span>{f}</span>
                     </li>
                   ))}
                 </ul>
-              </div>
-            </Link>
-          ))}
-        </div>
 
-        <div className="bg-gray-50 rounded-lg p-8 mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">Our Process</h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {['Consultation', 'Planning', 'Execution', 'Completion'].map((step, i) => (
-              <div className="text-center" key={step}>
-                <div className="bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                  {i + 1}
+                <div className="mt-6">
+                  <Button asChild className="w-full">
+                    <Link to={`/services/${slug}`}>View Details</Link>
+                  </Button>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{step}</h3>
-                <p className="text-gray-600 text-sm">
-                  {step === 'Consultation' && 'Free on-site consultation to discuss your project needs and vision'}
-                  {step === 'Planning' && 'Detailed planning and design with accurate measurements and specifications'}
-                  {step === 'Execution' && 'Professional installation using quality materials and proven techniques'}
-                  {step === 'Completion' && 'Final inspection and cleanup, ensuring your complete satisfaction'}
-                </p>
               </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Ready to Get Started?</h2>
-          <p className="text-lg text-gray-600 mb-8">
-            Contact us today for a free estimate on your concrete project.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg">
-              <Link to="/contact">Get Free Quote</Link>
-            </Button>
-            <Button asChild variant="outline" size="lg">
-              <Link to="/gallery">View Our Work</Link>
-            </Button>
-          </div>
+            )
+          })}
         </div>
       </div>
     </div>
