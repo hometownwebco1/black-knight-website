@@ -1,3 +1,4 @@
+// src/pages/Contact.jsx
 import { Helmet } from "react-helmet";
 import { useState } from "react";
 import { assetUrl } from "@/utils/assetUrl";
@@ -29,6 +30,9 @@ export default function Contact() {
       phone: String(formData.get("phone") || "").trim(),
       projectType: String(formData.get("projectType") || "").trim(),
       message: String(formData.get("message") || "").trim(),
+
+      // ✅ send honeypot to server so it can block spam too
+      company_website: String(formData.get("company_website") || "").trim(),
     };
 
     try {
@@ -93,11 +97,11 @@ export default function Contact() {
       </section>
 
       <section className="container mx-auto max-w-6xl px-4 py-12">
-        <div className="grid md:grid-cols-2 items-start gap-12 md:gap-16">
+        <div className="grid items-start gap-12 md:grid-cols-2 md:gap-16">
           {/* LEFT: business info */}
           <div className="max-w-xl">
-            <h2 className="text-2xl font-semibold mb-3">Fast response. Clear pricing.</h2>
-            <p className="text-base leading-7 text-gray-600 mb-8">
+            <h2 className="mb-3 text-2xl font-semibold">Fast response. Clear pricing.</h2>
+            <p className="mb-8 text-base leading-7 text-gray-600">
               Tell us about your project and we’ll get back to you quickly.
             </p>
 
@@ -185,7 +189,8 @@ export default function Contact() {
                 <label className="block text-sm font-medium text-gray-800">Project Type</label>
                 <select
                   name="projectType"
-                  className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 bg-white"
+                  required
+                  className="mt-1 w-full rounded-lg border border-gray-300 bg-white px-3 py-2"
                   defaultValue=""
                 >
                   <option value="" disabled>
@@ -214,7 +219,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={status.state === "submitting"}
-                className="w-full rounded-lg bg-black px-4 py-3 text-white font-semibold hover:bg-black/90 disabled:opacity-60"
+                className="w-full rounded-lg bg-black px-4 py-3 font-semibold text-white hover:bg-black/90 disabled:opacity-60"
               >
                 {status.state === "submitting" ? "Sending..." : "Send Message"}
               </button>
@@ -222,7 +227,11 @@ export default function Contact() {
               {status.state !== "idle" && (
                 <p
                   className={`text-sm ${
-                    status.state === "success" ? "text-green-700" : status.state === "error" ? "text-red-700" : "text-gray-700"
+                    status.state === "success"
+                      ? "text-green-700"
+                      : status.state === "error"
+                      ? "text-red-700"
+                      : "text-gray-700"
                   }`}
                 >
                   {status.message}
