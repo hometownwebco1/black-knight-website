@@ -1,19 +1,39 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { assetUrl } from '@/utils/assetUrl';
 
-// ✅ use the new hero you added
+// ✅ use the hero you already have
 const HERO = assetUrl('/images/galleryhero4.jpeg');
 const SITE = 'https://www.bksconcrete.com';
 
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState(null);
 
-  // ⬇ pulled from your zip — keep your existing images/thumbnails
+  // ✅ Gallery items (includes the 3 new WebP images)
   const projects = [
+    // ✅ NEW (from your screenshot)
+    {
+      id: 11,
+      image: '/images/bks-concrete-project-01.webp',
+      title: 'New Sidewalk Pour',
+      description: 'Fresh concrete sidewalk installation with clean finish and straight lines.',
+    },
+    {
+      id: 12,
+      image: '/images/bks-concrete-project-02.webp',
+      title: 'Walkway Repair & Restoration',
+      description: 'Concrete walkway repair with a durable surface and safe work zone setup.',
+    },
+    {
+      id: 13,
+      image: '/images/bks-concrete-project-03.webp',
+      title: 'Concrete Slab Pour',
+      description: 'New concrete slab pour with a smooth, level finish and clean edges.',
+    },
+
+    // Existing gallery items (kept)
     { id: 1, image: '/images/drivewaypouronnewbuild1.jpeg', title: 'Driveway Construction', description: 'Brand new driveway on a new build home.' },
     { id: 2, image: '/images/pationexttoscreenporch.jpeg', title: 'Residential Patio', description: 'New residential patio.' },
     { id: 3, image: '/images/cranejobmiddle.jpeg', title: 'Commercial Pour', description: 'Large-scale commercial job.' },
@@ -23,8 +43,30 @@ export default function Gallery() {
     { id: 7, image: '/images/publicsidewalk1.jpeg', title: 'Public Sidewalk', description: 'Clean and ADA-friendly slope.' },
     { id: 8, image: '/images/sidewalksservicesheroimage.jpeg', title: 'Sidewalk Surface', description: 'Consistent texture across the path.' },
     { id: 9, image: '/images/stampedconcretecloseup.jpeg', title: 'Stamped Concrete', description: 'Decorative stamped finish close-up.' },
-    { id:10, image: '/images/stampedpatiobrickhouse.jpeg', title: 'Brick Patio', description: 'Stamped patio next to brick house.' },
+    { id: 10, image: '/images/stampedpatiobrickhouse.jpeg', title: 'Brick Patio', description: 'Stamped patio next to brick house.' },
   ];
+
+  // ✅ SEO: JSON-LD image gallery structured data
+  const galleryJsonLd = useMemo(() => {
+    const imageObjects = projects.map((p) => ({
+      '@type': 'ImageObject',
+      contentUrl: `${SITE}${p.image}`,
+      url: `${SITE}${p.image}`,
+      name: p.title,
+      caption: p.description,
+    }));
+
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'ImageGallery',
+      name: 'BKS Concrete Project Gallery',
+      url: `${SITE}/gallery`,
+      description:
+        'Browse concrete projects including driveways, patios, sidewalks, slabs, and decorative finishes completed by BKS Concrete.',
+      image: imageObjects.map((i) => i.contentUrl),
+      associatedMedia: imageObjects,
+    };
+  }, [projects]);
 
   return (
     <div className="min-h-screen bg-white">
@@ -32,31 +74,38 @@ export default function Gallery() {
         <title>Concrete Project Gallery | BKS Concrete</title>
         <meta
           name="description"
-          content="Explore driveways, patios, walkways, pool decks, and decorative finishes completed by BKS Concrete."
+          content="Browse completed concrete projects by BKS Concrete—driveways, patios, sidewalks, slabs, and decorative finishes. View recent work and request a free estimate."
         />
         <link rel="canonical" href={`${SITE}/gallery`} />
 
-        <link rel="preload" as="image" href={HERO} />
+        {/* Social cards */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${SITE}/gallery`} />
         <meta property="og:title" content="Concrete Project Gallery | BKS Concrete" />
         <meta
           property="og:description"
-          content="Explore completed concrete projects across the area by BKS Concrete."
+          content="Explore completed concrete projects—driveways, patios, sidewalks, slabs, and decorative finishes—by BKS Concrete."
         />
         <meta property="og:image" content={`${SITE}${HERO}`} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content={`${SITE}${HERO}`} />
+
+        {/* Performance */}
+        <link rel="preload" as="image" href={HERO} />
+
+        {/* ✅ Structured Data */}
+        <script type="application/ld+json">{JSON.stringify(galleryJsonLd)}</script>
       </Helmet>
 
       {/* Hero */}
       <section className="relative h-[42vh] min-h-[320px] w-full overflow-hidden">
         <img
           src={HERO}
-          alt="Concrete gallery hero"
+          alt="Concrete project gallery by BKS Concrete"
           className="absolute inset-0 h-full w-full object-cover"
           loading="eager"
           fetchpriority="high"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-black/40" aria-hidden />
         <div className="relative z-10 mx-auto flex h-full max-w-6xl items-end px-6 pb-10">
@@ -64,7 +113,7 @@ export default function Gallery() {
         </div>
       </section>
 
-      {/* 🔽 Your original gallery grid (from the zip) */}
+      {/* Gallery grid */}
       <div className="mx-auto max-w-6xl px-6 py-12">
         <p className="text-muted-foreground mb-6">
           Browse a sample of our recent work. Want something similar?{' '}
@@ -85,9 +134,10 @@ export default function Gallery() {
               >
                 <img
                   src={assetUrl(project.image)}
-                  alt={project.title}
+                  alt={`${project.title} - ${project.description}`}
                   className="h-56 w-full object-cover transition-transform duration-300 group-hover:scale-105"
                   loading="lazy"
+                  decoding="async"
                 />
                 <div className="p-4">
                   <div className="font-semibold">{project.title}</div>
@@ -99,7 +149,7 @@ export default function Gallery() {
         </div>
       </div>
 
-      {/* Lightbox modal (unchanged logic) */}
+      {/* Lightbox modal */}
       {selectedImage && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
@@ -118,11 +168,14 @@ export default function Gallery() {
             >
               <X className="h-5 w-5" />
             </button>
+
             <img
               src={assetUrl(selectedImage.image)}
-              alt={selectedImage.title}
+              alt={`${selectedImage.title} - ${selectedImage.description}`}
               className="max-w-full max-h-[80vh] w-full object-contain bg-black"
+              decoding="async"
             />
+
             <div className="bg-black/70 text-white p-4">
               <h3 className="text-xl font-semibold">{selectedImage.title}</h3>
               <p>{selectedImage.description}</p>
